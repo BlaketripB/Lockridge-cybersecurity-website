@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Focus — Lockridge Cybersecurity</title>
+  <meta name="description" content="Why we only serve healthcare — and what that focus means for the protection we can offer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.svg" alt="Lockridge Cybersecurity" class="nav-logo-img">
+        <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html" style="color:var(--text-1)">Healthcare Focus</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Free 15-Min Checkup</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-bg-glow glow-1"></div>
+    <div class="page-bg-glow glow-2"></div>
+    <div class="container">
+      <div class="page-hero-tag">Why specialization matters</div>
+      <h1>We Only Serve<br/>Healthcare — On Purpose</h1>
+      <p>A general IT company and a healthcare-specific security firm are not the same thing. The difference is knowing that your EHR vendor's BAA doesn't protect you, and that your front desk workflow is a HIPAA violation waiting to happen.</p>
+    </div>
+  </section>
+
+  <!-- WHY HEALTHCARE -->
+  <section style="padding:100px 0; background:var(--bg);">
+    <div class="container">
+      <div class="section-eyebrow reveal">The reality</div>
+      <h2 class="section-title reveal">Healthcare Is the #1 Target.<br/>Small Practices Are Most Exposed.</h2>
+      <p class="section-sub reveal">Attackers know that hospitals have hardened security teams. So they shifted. Now the most targeted entities are practices with fewer than 20 employees — exactly the ones that believe they're too small to matter.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px;">
+        <div class="service-card reveal" style="--card-delay:0s; text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:3.5rem;font-weight:700;color:var(--red);margin-bottom:12px;text-shadow:0 0 20px rgba(239,68,68,0.4);">$10.9M</div>
+          <p style="font-size:0.95rem;color:var(--text-2);">Average cost of a healthcare data breach — the highest of any industry for 13 consecutive years.</p>
+          <div class="service-tag" style="margin-top:16px;">IBM / Ponemon 2024</div>
+        </div>
+        <div class="service-card reveal" style="--card-delay:0.1s; text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:3.5rem;font-weight:700;color:var(--amber);margin-bottom:12px;text-shadow:0 0 20px rgba(245,158,11,0.4);">72%</div>
+          <p style="font-size:0.95rem;color:var(--text-2);">Of healthcare ransomware attacks targeted organizations with fewer than 500 employees in 2023.</p>
+          <div class="service-tag" style="margin-top:16px;">HHS Threat Landscape Report</div>
+        </div>
+        <div class="service-card reveal" style="--card-delay:0.2s; text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:3.5rem;font-weight:700;color:var(--cyan);margin-bottom:12px;text-shadow:0 0 20px rgba(0,212,255,0.4);">$50K+</div>
+          <p style="font-size:0.95rem;color:var(--text-2);">Average OCR fine for a single HIPAA violation with willful neglect — even when no breach occurred.</p>
+          <div class="service-tag" style="margin-top:16px;">HHS / OCR Enforcement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES DETAIL -->
+  <section style="padding:100px 0; background:var(--bg-2);">
+    <div class="container">
+      <div class="section-eyebrow reveal">What we do</div>
+      <h2 class="section-title reveal">Services Built Around<br/>How Healthcare Actually Works</h2>
+
+      <div class="services-grid" style="margin-top:56px;">
+        <div class="service-card reveal" style="--card-delay:0s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+          <h3 class="service-name">Email Security & Phishing Training</h3>
+          <p class="service-desc">Healthcare staff are targeted with medical billing scams, fake EHR notifications, and spoofed insurance emails. We simulate those attacks, train your team, and deploy technical controls that stop what training misses.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ Simulated phishing campaigns (quarterly)</li>
+              <li>→ Staff training & awareness program</li>
+              <li>→ Email filtering & anti-spoofing (DMARC/DKIM/SPF)</li>
+              <li>→ Business email compromise protection</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay:0.1s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+          <h3 class="service-name">HIPAA Security Risk Assessment</h3>
+          <p class="service-desc">Required by federal law. Rarely done correctly. We perform formal Security Rule risk analyses that identify real vulnerabilities — not checkbox exercises — and produce documentation that holds up to OCR scrutiny.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ Formal 45 CFR §164.308 risk analysis</li>
+              <li>→ Written risk management plan</li>
+              <li>→ Policy and procedure review</li>
+              <li>→ Business Associate Agreement audit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay:0.2s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
+          <h3 class="service-name">Vulnerability Assessment & Pen Testing</h3>
+          <p class="service-desc">We test your network the way an attacker would — methodically, thoroughly, without warning on the systems we've agreed to test. You get a prioritized report in plain language, not a 200-page technical PDF no one reads.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ External & internal network scanning</li>
+              <li>→ EHR / medical device segmentation review</li>
+              <li>→ Wireless network security testing</li>
+              <li>→ Prioritized remediation roadmap</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay:0.3s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+          <h3 class="service-name">Device Encryption & Access Control</h3>
+          <p class="service-desc">A laptop with unencrypted patient data lost in a parking lot is a mandatory HIPAA breach report, regardless of whether anyone accessed the data. We eliminate that exposure across every device in your practice.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ Full-disk encryption (BitLocker / FileVault)</li>
+              <li>→ User access control & least-privilege review</li>
+              <li>→ Multi-factor authentication deployment</li>
+              <li>→ Remote wipe capability for mobile devices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay:0.4s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <h3 class="service-name">Dark Web & Breach Monitoring</h3>
+          <p class="service-desc">Stolen credentials from your practice often sit on dark web marketplaces for weeks before they're used. We watch for your domain, email addresses, and other identifiers — so you find out before the attacker acts.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ 24/7 dark web credential monitoring</li>
+              <li>→ Real-time breach alerting</li>
+              <li>→ Monthly threat landscape reports</li>
+              <li>→ Immediate response guidance on alerts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay:0.5s;">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <h3 class="service-name">Incident Response Planning & Support</h3>
+          <p class="service-desc">Most practices have no documented response plan. When a breach happens, they improvise — and every hour of improvisation costs money, exposes more data, and increases HIPAA liability. We build your plan before you need it.</p>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);">
+            <div class="service-tag" style="margin-bottom:10px;">Includes</div>
+            <ul style="font-size:0.85rem;color:var(--text-3);display:flex;flex-direction:column;gap:6px;">
+              <li>→ Written, tested incident response plan</li>
+              <li>→ Breach notification procedure (HIPAA 60-day rule)</li>
+              <li>→ Tabletop exercise (simulated breach response)</li>
+              <li>→ 24/7 on-call support during active incidents</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-inner reveal">
+        <div class="final-cta-tag">Ready when you are</div>
+        <h2 class="final-cta-title">Start with a conversation.</h2>
+        <p class="final-cta-sub">15 minutes. Free. Honest. No pitch if you're not a fit.</p>
+        <a href="contact.html" class="hero-cta" style="display:inline-flex;">
+          <span class="cta-text">Book your free checkup</span>
+          <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+          <p class="footer-tagline">Healthcare cybersecurity.<br/>Personal. Focused. Thorough.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="healthcare.html">Healthcare Focus</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="healthcare.html">Email Security</a></li>
+            <li><a href="healthcare.html">HIPAA Compliance</a></li>
+            <li><a href="healthcare.html">Dark Web Monitoring</a></li>
+            <li><a href="healthcare.html">Penetration Testing</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>The Easy Ask</h4>
+          <p>Free 15-minute checkup. No pitch.</p>
+          <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+          <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+          <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

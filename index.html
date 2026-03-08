@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lockridge Cybersecurity — Healthcare Protection That's Personal</title>
+  <meta name="description" content="HIPAA-focused cybersecurity for healthcare practices. We protect patient data, prevent breaches, and keep your practice compliant — so you can focus on care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       CUSTOM CURSOR
+  ═══════════════════════════════════════════════ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAV (appears on scroll)
+  ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.svg" alt="Lockridge Cybersecurity" class="nav-logo-img">
+        <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Healthcare Focus</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Free 15-Min Checkup</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 1 — THE BREACH CLOCK (HERO)
+  ═══════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <canvas id="matrixCanvas"></canvas>
+    <div class="hero-noise"></div>
+
+    <div class="hero-content">
+      <div class="breach-label">
+        <span class="breach-dot"></span>
+        LIVE — HEALTHCARE DATA BREACH TRACKER
+      </div>
+
+      <div class="breach-clock-wrapper">
+        <p class="breach-clock-lead">A healthcare record was just stolen.</p>
+        <div class="breach-clock-line">
+          <span class="breach-clock-prefix">Another one</span>
+          <div class="breach-counter-box">
+            <span id="secCounter">0</span>
+          </div>
+          <span class="breach-clock-suffix">seconds ago.</span>
+        </div>
+        <p class="breach-clock-trail">And another one <span class="highlight-text">right now.</span></p>
+      </div>
+
+      <div class="hero-stat" id="heroStat">
+        <p>In the time you've been on this page — <span class="stat-count" id="statCount">0</span> patient records have been compromised nationwide.</p>
+      </div>
+
+      <div class="hero-question">
+        <p>When was the last time someone checked if yours were next?</p>
+      </div>
+
+      <a href="contact.html" class="hero-cta">
+        <span class="cta-text">Let's find out — free, no strings.</span>
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <div class="scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 2 — A DAY THAT STARTS NORMAL
+  ═══════════════════════════════════════════════ -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="section-eyebrow reveal">Based on a true incident. Repeated daily.</div>
+      <h2 class="section-title reveal">A Day That Starts Normal</h2>
+
+      <div class="story-script reveal">
+        <div class="script-line" data-day="MONDAY, 8:14 AM">
+          <div class="script-day">MONDAY · 8:14 AM</div>
+          <p>Your front desk opens the EHR. A patient calls about a prescription refill. The phone rings again. Someone clicks an email that looks like it came from your imaging vendor.</p>
+          <p class="script-sub">Nothing seems wrong.</p>
+        </div>
+
+        <div class="timeline-connector"></div>
+
+        <div class="script-line" data-day="WEDNESDAY" style="--delay: 0.2s">
+          <div class="script-day">WEDNESDAY · 11:47 AM</div>
+          <p>Every patient file in your practice is locked behind a ransom demand. The screen says $80,000 in Bitcoin within 48 hours.</p>
+          <p class="script-sub">The office goes quiet.</p>
+        </div>
+
+        <div class="timeline-connector"></div>
+
+        <div class="script-line" data-day="FRIDAY" style="--delay: 0.4s">
+          <div class="script-day">FRIDAY · 4:30 PM</div>
+          <p>You're on the phone calling 4,000 patients — one by one — to tell them their Social Security numbers, diagnoses, and insurance data are on the dark web.</p>
+          <p class="script-sub">You never thought you'd be making this call.</p>
+        </div>
+      </div>
+
+      <div class="story-closer reveal">
+        <div class="closer-line"></div>
+        <p>This isn't a scare tactic.</p>
+        <p class="closer-emphasis">This is Tuesday for someone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 3 — THE UNCOMFORTABLE CHECKLIST
+  ═══════════════════════════════════════════════ -->
+  <section class="checklist-section" id="checklist">
+    <div class="container">
+      <div class="section-eyebrow reveal">Be honest with yourself</div>
+      <h2 class="section-title reveal">The Uncomfortable Checklist</h2>
+      <p class="section-sub reveal">Answer these. No judgment. Just truth.</p>
+
+      <div class="checklist-wrapper">
+        <div class="checklist-questions" id="checklistQuestions">
+          <!-- Questions injected by JS -->
+        </div>
+
+        <div class="checklist-result" id="checklistResult">
+          <div class="result-line"></div>
+          <p class="result-text">If you hesitated on even one —</p>
+          <p class="result-emphasis">that's the gap an attacker needs.</p>
+          <a href="contact.html" class="result-cta">Close the gap — free checkup</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 4 — THE WARM TURN
+  ═══════════════════════════════════════════════ -->
+  <section class="warm-section" id="warm">
+    <div class="container">
+      <div class="warm-grid">
+        <div class="warm-visual reveal">
+          <div class="warm-photo-frame">
+            <div class="warm-photo-placeholder">
+              <div class="photo-initials">LC</div>
+              <p class="photo-note">Your photo here</p>
+            </div>
+            <div class="warm-photo-border"></div>
+            <div class="warm-badge">
+              <span class="badge-dot"></span>
+              Healthcare Security Specialist
+            </div>
+          </div>
+        </div>
+
+        <div class="warm-text reveal">
+          <div class="warm-quote-mark">"</div>
+          <p class="warm-message">I know that was heavy.</p>
+          <p class="warm-message-body">I'm not here to scare you into buying something. I got into this because I watched a small family practice nearly close its doors after a breach. The doctor cried in his office.</p>
+          <p class="warm-message-body">That stuck with me. I decided I'd rather spend my career making sure that never happens to anyone else.</p>
+          <div class="warm-divider"></div>
+          <p class="warm-tagline">I protect healthcare practices.<br/>That's all I do — and I take it personally.</p>
+          <div class="warm-sig">
+            <span class="sig-name">Lockridge Cybersecurity</span>
+            <span class="sig-cert">HIPAA Security Specialist · Certified Ethical Hacker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 5 — WHAT REAL PROTECTION LOOKS LIKE
+  ═══════════════════════════════════════════════ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-eyebrow reveal">Solutions to the fears you just felt</div>
+      <h2 class="section-title reveal">What Real Protection Looks Like</h2>
+
+      <div class="services-grid">
+        <div class="service-card reveal" style="--card-delay: 0s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="service-trigger">So that Monday morning email can't lock your files</div>
+          <h3 class="service-name">Email Security & Phishing Training</h3>
+          <p class="service-desc">Your team is the most targeted entry point in any healthcare practice. We simulate real attacks, train your staff, and deploy filters that stop malicious emails before they ever reach an inbox.</p>
+          <div class="service-tag">Most common breach vector</div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay: 0.1s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="service-trigger">So you never have to make that phone call to patients</div>
+          <h3 class="service-name">Breach Prevention & Dark Web Monitoring</h3>
+          <p class="service-desc">We watch the places attackers sell stolen credentials. If your practice data surfaces anywhere it shouldn't, you'll know within hours — not months. Early warning is everything.</p>
+          <div class="service-tag">24/7 monitoring</div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay: 0.2s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <div class="service-trigger">So your HIPAA audit feels boring, not terrifying</div>
+          <h3 class="service-name">Risk Assessments & HIPAA Compliance</h3>
+          <p class="service-desc">A proper HIPAA Security Risk Analysis isn't a checkbox — it's a living document. We perform formal assessments, document your findings, and help you actually fix what we find. Not just report it.</p>
+          <div class="service-tag">Required by law</div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay: 0.3s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div class="service-trigger">So a stolen laptop doesn't become a stolen practice</div>
+          <h3 class="service-name">Device Encryption & Access Control</h3>
+          <p class="service-desc">Every device that touches patient data is a potential breach point. We encrypt them, lock them down, and make sure that when a device goes missing — and eventually one will — the data doesn't go with it.</p>
+          <div class="service-tag">Endpoint hardening</div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay: 0.4s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <div class="service-trigger">So your network isn't a door left open</div>
+          <h3 class="service-name">Vulnerability Assessments & Penetration Testing</h3>
+          <p class="service-desc">We attack your systems the way a real hacker would — then show you exactly what we found, in plain language. You see every open door. We help you close them before someone else walks through.</p>
+          <div class="service-tag">Find it before they do</div>
+        </div>
+
+        <div class="service-card reveal" style="--card-delay: 0.5s">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="service-trigger">So when the worst happens, you're not guessing</div>
+          <h3 class="service-name">Incident Response Planning</h3>
+          <p class="service-desc">Most practices have no plan for the moment they realize they've been breached. We build yours — tested, documented, and ready. Because the worst time to write a fire escape plan is when the building is burning.</p>
+          <div class="service-tag">Be ready, not reactive</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 6 — TESTIMONIALS / CASE STUDIES
+  ═══════════════════════════════════════════════ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-eyebrow reveal">Don't take my word for it</div>
+      <h2 class="section-title reveal">Real Practices. Real Results.</h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal" style="--card-delay: 0s">
+          <div class="testimonial-type">Case Study · Pediatric Practice</div>
+          <p class="testimonial-story">"A 6-provider pediatric office came to us after their IT company told them 'HIPAA isn't really enforced.' Within our first week, we found 14 critical vulnerabilities — including an unsecured server that had been internet-facing for 3 years."</p>
+          <div class="testimonial-result">
+            <span class="result-badge">Result: All 14 closed. Zero breach. $0 in fines.</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal" style="--card-delay: 0.15s">
+          <div class="testimonial-type">Case Study · Family Medicine · 3 Providers</div>
+          <p class="testimonial-story">"Their former office manager — who had left 11 months prior — still had active logins to their EHR, billing software, and email. They had no idea. We audited their access control in hour one."</p>
+          <div class="testimonial-result">
+            <span class="result-badge">Result: Access revoked. Audit trail preserved.</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal" style="--card-delay: 0.3s">
+          <div class="testimonial-type">Client Testimonial · Dental Practice Owner</div>
+          <p class="testimonial-story">"I thought we were covered because our software said it was 'HIPAA compliant.' Lockridge showed me that HIPAA compliance applies to <em>how we use</em> the software — not just what software we use. That distinction saved us."</p>
+          <div class="testimonial-author">
+            <span>— Practice owner, 2-location dental group</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal" style="--card-delay: 0.45s">
+          <div class="testimonial-type">Client Testimonial · Behavioral Health</div>
+          <p class="testimonial-story">"I was embarrassed to admit I didn't know the answers to some of the questions they asked. But they never made me feel judged. By the end, I actually understood what we were protecting and why. That was new."</p>
+          <div class="testimonial-author">
+            <span>— Director, 8-clinician behavioral health practice</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 7 — RESOURCES
+  ═══════════════════════════════════════════════ -->
+  <section class="resources-section" id="resources">
+    <div class="container">
+      <div class="section-eyebrow reveal">Knowledge is protection</div>
+      <h2 class="section-title reveal">The Resource Corner</h2>
+      <p class="section-sub reveal">Healthcare-specific articles. Written clearly. No jargon. Free forever.</p>
+
+      <div class="resources-grid">
+        <a href="resources.html" class="resource-card reveal" style="--card-delay: 0s">
+          <div class="resource-tag">Incident Response</div>
+          <h3>What Happens in the First 72 Hours After a Healthcare Breach</h3>
+          <p>The window between discovery and notification is critical. Most practices waste it. Here's exactly what should happen, hour by hour.</p>
+          <span class="resource-read">Read →</span>
+        </a>
+
+        <a href="resources.html" class="resource-card reveal" style="--card-delay: 0.1s">
+          <div class="resource-tag">Compliance</div>
+          <h3>The HIPAA Violation Hiding in Your Front Desk Workflow</h3>
+          <p>Your biggest compliance risk probably isn't a hacker. It's a habit. Three common front-desk patterns that violate HIPAA every single day.</p>
+          <span class="resource-read">Read →</span>
+        </a>
+
+        <a href="resources.html" class="resource-card reveal" style="--card-delay: 0.2s">
+          <div class="resource-tag">Vendor Risk</div>
+          <h3>Why Your EHR Vendor's "HIPAA Compliant" Claim Might Mean Nothing</h3>
+          <p>Software can be HIPAA-ready. That doesn't mean your practice is HIPAA-compliant. The distinction is the difference between a tool and a policy.</p>
+          <span class="resource-read">Read →</span>
+        </a>
+
+        <a href="resources.html" class="resource-card reveal" style="--card-delay: 0.3s">
+          <div class="resource-tag">Ransomware</div>
+          <h3>Ransomware in Dentistry: Why Small Practices Are Target #1</h3>
+          <p>Attackers don't go after hospitals anymore — the security is too good. They go after 2-chair dental offices. Here's why, and what you can do about it.</p>
+          <span class="resource-read">Read →</span>
+        </a>
+      </div>
+
+      <div class="resources-cta reveal">
+        <a href="resources.html" class="secondary-btn">View all articles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="final-cta-section" id="cta">
+    <div class="container">
+      <div class="final-cta-inner reveal">
+        <div class="final-cta-tag">No pitch. No pressure. Just honesty.</div>
+        <h2 class="final-cta-title">Free 15-Minute Practice Checkup</h2>
+        <p class="final-cta-sub">Just a conversation. I'll tell you where you stand — honestly. If everything looks good, I'll tell you that too.</p>
+
+        <form class="contact-form" id="ctaForm" action="contact.html" method="get">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Best phone number" required autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <select name="time">
+              <option value="" disabled selected>Preferred time to chat</option>
+              <option>Weekday morning (8am–12pm)</option>
+              <option>Weekday afternoon (12pm–5pm)</option>
+              <option>Weekday evening (5pm–7pm)</option>
+              <option>Saturday morning</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">
+            <span>Schedule my free checkup</span>
+            <span class="submit-arrow">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span>
+          </div>
+          <p class="footer-tagline">Healthcare cybersecurity.<br/>Personal. Focused. Thorough.</p>
+          <div class="footer-certs">
+            <span class="cert-tag">HIPAA Security Specialist</span>
+            <span class="cert-tag">CEH</span>
+            <span class="cert-tag">CompTIA Security+</span>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="healthcare.html">Healthcare Focus</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="healthcare.html">Email Security & Training</a></li>
+            <li><a href="healthcare.html">HIPAA Risk Assessments</a></li>
+            <li><a href="healthcare.html">Dark Web Monitoring</a></li>
+            <li><a href="healthcare.html">Penetration Testing</a></li>
+            <li><a href="healthcare.html">Incident Response</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>The Easy Ask</h4>
+          <p>Free 15-minute checkup. Honest conversation. No pitch.</p>
+          <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+          <div class="footer-contact-info">
+            <a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a>
+          </div>
+          <div class="footer-contact-info" style="margin-top:6px;">
+            <a href="tel:3859858976">385-985-8976</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <p class="footer-disclaimer">This website does not establish an attorney-client or consultant relationship. Content is for informational purposes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
