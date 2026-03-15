@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free IT &amp; Cybersecurity Checkup in Utah County | LockRidge Cybersecurity</title>
+  <meta name="description" content="Schedule your free 15-minute IT and cybersecurity checkup. No pitch. An honest conversation about where your business or healthcare practice stands." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lockridgecyber.com/contact.html" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      padding: 100px 0;
+    }
+    .contact-info-col { }
+    .contact-form-col { }
+
+    .contact-info-title {
+      font-size: clamp(2rem,4vw,2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .contact-info-sub {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .contact-promise-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-promise {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .promise-icon {
+      width: 32px; height: 32px;
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .promise-icon svg { width: 16px; height: 16px; color: var(--cyan); }
+    .promise-text strong { display: block; color: var(--text-1); font-weight: 600; font-size: 0.97rem; margin-bottom: 4px; }
+    .promise-text span { font-size: 0.88rem; color: var(--text-3); line-height: 1.5; }
+
+    .contact-divider {
+      width: 1px;
+      background: var(--border);
+      position: absolute;
+      left: 50%; top: 100px; bottom: 100px;
+      transform: translateX(-50%);
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+    }
+    .form-card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-1);
+    }
+    .form-card-sub {
+      font-size: 0.9rem;
+      color: var(--text-3);
+      margin-bottom: 32px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.03em;
+    }
+
+    .form-full { display:flex; flex-direction:column; gap:16px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+    .full-textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      color: var(--text-1);
+      font-size: 15px;
+      resize: vertical;
+      min-height: 100px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .full-textarea::placeholder { color: var(--text-3); }
+    .full-textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+    }
+
+    .form-full input,
+    .form-full select { background: var(--surface-2); }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .contact-direct {
+      margin-top: 48px;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .contact-direct-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+    .contact-direct-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-2);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .contact-direct-item svg { width:18px; height:18px; color:var(--cyan); flex-shrink:0; }
+    .contact-direct-item a { color: var(--cyan); transition: color 0.2s; }
+    .contact-direct-item a:hover { color: var(--text-1); }
+
+    @media (max-width: 768px) {
+      .contact-page-grid { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+        <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Healthcare Focus</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="nav-cta" style="color:var(--text-1)!important;background:var(--cyan);border-color:var(--cyan);">Free Checkup</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Free 15-Min Checkup</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero" style="padding:140px 0 80px;">
+    <div class="page-bg-glow glow-1"></div>
+    <div class="page-bg-glow glow-2"></div>
+    <div class="container">
+      <div class="page-hero-tag">No pitch. No pressure. Just honesty.</div>
+      <h1>Free 15-Minute<br/>Practice Checkup</h1>
+      <p>Just a conversation. I'll tell you where you stand — and if everything looks good, I'll tell you that too.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <section style="background:var(--bg); padding-bottom:100px;">
+    <div class="container" style="position:relative;">
+      <div class="contact-page-grid">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info-col reveal">
+          <h2 class="contact-info-title">What to Expect</h2>
+          <p class="contact-info-sub">This isn't a sales discovery call. It's a real conversation about your practice's security posture — where you are, where the gaps are, and what they mean in plain English.</p>
+
+          <div class="contact-promise-list">
+            <div class="contact-promise">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="promise-text">
+                <strong>15 minutes, your time</strong>
+                <span>Phone or video — whichever you prefer. I'll work around your schedule, not mine.</span>
+              </div>
+            </div>
+
+            <div class="contact-promise">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="promise-text">
+                <strong>Honest assessment</strong>
+                <span>If your practice is in good shape, I'll say so. I'm not here to invent problems to solve.</span>
+              </div>
+            </div>
+
+            <div class="contact-promise">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <div class="promise-text">
+                <strong>Zero pressure</strong>
+                <span>There's no pitch at the end. If we're a good fit, we'll talk more. If not, you leave with honest information you can act on yourself.</span>
+              </div>
+            </div>
+
+            <div class="contact-promise">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <div class="promise-text">
+                <strong>Completely confidential</strong>
+                <span>Everything you share stays between us. I operate under standard confidentiality — and I take that seriously.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-direct">
+            <div class="contact-direct-label">Prefer to reach out directly?</div>
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a>
+            </div>
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:3859858976">385-985-8976</a>
+            </div>
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Typical response: within one business day</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="contact-form-col reveal">
+          <div class="form-card">
+            <h3 class="form-card-title">Request Your Free Checkup</h3>
+            <p class="form-card-sub">Takes 60 seconds. We'll handle the rest.</p>
+
+            <form class="form-full" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" name="firstName" placeholder="First name" required />
+                </div>
+                <div class="form-group">
+                  <input type="text" name="lastName" placeholder="Last name" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Email address" required />
+              </div>
+
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone number (I'll call you)" required />
+              </div>
+
+              <div class="form-group">
+                <input type="text" name="practice" placeholder="Practice name" />
+              </div>
+
+              <div class="form-group">
+                <select name="practiceType">
+                  <option value="" disabled selected>Type of practice</option>
+                  <option>Family Medicine / Primary Care</option>
+                  <option>Dental / Orthodontics</option>
+                  <option>Behavioral Health / Psychiatry</option>
+                  <option>Pediatrics</option>
+                  <option>Specialty Practice</option>
+                  <option>Physical Therapy / Rehab</option>
+                  <option>Chiropractic</option>
+                  <option>Other Healthcare</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <select name="size">
+                  <option value="" disabled selected>Practice size</option>
+                  <option>Solo provider</option>
+                  <option>2–5 providers</option>
+                  <option>6–15 providers</option>
+                  <option>16+ providers / multi-site</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <select name="time">
+                  <option value="" disabled selected>Preferred time to connect</option>
+                  <option>Mon–Thu morning (8am–12pm)</option>
+                  <option>Mon–Thu afternoon (12pm–5pm)</option>
+                  <option>Mon–Thu evening (5pm–7pm)</option>
+                  <option>Flexible — work around my schedule</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <textarea class="full-textarea" name="message" placeholder="Anything specific on your mind? (optional) — recent incident, compliance deadline, concerns about your current setup..."></textarea>
+              </div>
+
+              <button type="submit" class="form-submit" id="contactSubmit">
+                <span>Request my free checkup</span>
+                <span class="submit-arrow">→</span>
+              </button>
+
+              <p class="form-note">Your information is never shared. This is a confidential, no-obligation conversation.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+          <p class="footer-tagline">Healthcare cybersecurity.<br/>Personal. Focused. Thorough.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="healthcare.html">Healthcare Focus</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="healthcare.html">Email Security</a></li>
+            <li><a href="healthcare.html">HIPAA Compliance</a></li>
+            <li><a href="healthcare.html">Penetration Testing</a></li>
+            <li><a href="healthcare.html">Incident Response</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Reach out directly anytime.</p>
+          <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+          <div class="footer-contact-info" style="margin-top:8px;"><a href="tel:3859858976">385-985-8976</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = document.getElementById('contactSubmit');
+        btn.innerHTML = '<span>Sending...</span>';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.innerHTML = '<span>✓ Request received — I\'ll be in touch within one business day.</span>';
+          btn.style.background = 'var(--green)';
+          contactForm.reset();
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+</html>
