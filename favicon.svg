@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 168" fill="none">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sm" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="shieldBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e0e1c"/>
+      <stop offset="100%" stop-color="#07070e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield ambient glow -->
+  <path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z"
+        fill="rgba(0,212,255,0.08)" filter="url(#glow)"/>
+
+  <!-- Shield body -->
+  <path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z"
+        fill="url(#shieldBg)"/>
+
+  <!-- Shield outer border — cyan glow -->
+  <path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z"
+        stroke="#00d4ff" stroke-width="1.8" filter="url(#glow)"/>
+
+  <!-- Shield inner border — indigo accent -->
+  <path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z"
+        stroke="rgba(99,102,241,0.35)" stroke-width="1"/>
+
+  <!-- Scan line accent -->
+  <line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/>
+
+  <!-- Corner circuit dots (top left / top right of inner shield) -->
+  <rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/>
+  <rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/>
+
+  <!-- Padlock shackle -->
+  <path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98"
+        stroke="url(#lg)" stroke-width="8.5" stroke-linecap="round" filter="url(#sm)"/>
+
+  <!-- Padlock body -->
+  <rect x="49" y="96" width="46" height="40" rx="5" fill="url(#lg)" filter="url(#sm)"/>
+
+  <!-- Keyhole circle -->
+  <circle cx="72" cy="111" r="6.5" fill="#07070e"/>
+  <!-- Keyhole stem -->
+  <rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/>
+
+  <!-- === PIXEL DISSOLUTION === -->
+
+  <!-- Column 1 — attached to shield edge, brightest -->
+  <rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#sm)"/>
+  <rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#sm)"/>
+  <rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#sm)"/>
+  <rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#sm)"/>
+
+  <!-- Column 2 -->
+  <rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/>
+  <rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/>
+  <rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/>
+  <rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/>
+  <rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/>
+
+  <!-- Column 3 -->
+  <rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/>
+  <rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/>
+  <rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/>
+  <rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/>
+  <rect x="154" y="92" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.2"/>
+
+  <!-- Column 4 -->
+  <rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/>
+  <rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/>
+  <rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/>
+  <rect x="163" y="84" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.14"/>
+
+  <!-- Column 5 — barely visible specks -->
+  <rect x="170" y="50" width="3" height="3" rx="0.5" fill="#00d4ff" opacity="0.14"/>
+  <rect x="170" y="62" width="3" height="3" rx="0.5" fill="#6366f1" opacity="0.11"/>
+  <rect x="170" y="74" width="3" height="3" rx="0.5" fill="#00d4ff" opacity="0.1"/>
+
+  <!-- Bridge lines: shield edge → first pixel column -->
+  <line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/>
+  <line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/>
+  <line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/>
+  <line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/>
+</svg>

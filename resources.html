@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT & Cybersecurity Resources for Utah Businesses | LockRidge Cybersecurity</title>
+  <meta name="description" content="Free cybersecurity and IT resources for small businesses and healthcare practices in Utah County. Plain-language guides on HIPAA, ransomware, network security, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lockridgecyber.com/resources.html" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IT & Cybersecurity Resources for Utah Businesses | LockRidge Cybersecurity" />
+  <meta property="og:description" content="Free cybersecurity and IT resources for small businesses and healthcare practices in Utah County. Plain-language guides on HIPAA, ransomware, network security, and more." />
+  <meta property="og:url" content="https://lockridgecyber.com/resources.html" />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s var(--ease-smooth), box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      cursor: none;
+    }
+    .article-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+    .article-card-top {
+      padding: 32px 32px 0;
+    }
+    .article-card-body { padding: 20px 32px 32px; flex: 1; display: flex; flex-direction: column; }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid;
+    }
+    .tag-incident { color: var(--red); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: var(--amber); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: var(--indigo); border-color: rgba(99,102,241,0.3); background: var(--indigo-dim); }
+    .tag-ransomware { color: var(--red); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: var(--cyan); border-color: rgba(0,212,255,0.3); background: var(--cyan-dim); }
+    .tag-hipaa { color: var(--green); border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.06); }
+
+    .article-read-time {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+    }
+
+    .article-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .article-card p {
+      font-size: 0.92rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+    .article-read-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--cyan);
+      letter-spacing: 0.06em;
+      transition: letter-spacing 0.3s;
+      display: inline-block;
+    }
+    .article-card:hover .article-read-link { letter-spacing: 0.12em; }
+
+    .article-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .article-featured .article-card-top { padding: 40px 40px 0; }
+    .article-featured .article-card-body { padding: 24px 40px 40px; }
+    .article-featured h3 { font-size: 1.5rem; }
+
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-3);
+      transition: all 0.2s;
+      cursor: none;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: var(--cyan-dim);
+    }
+
+    .newsletter-bar {
+      background: var(--surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-bar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(99,102,241,0.06), transparent 70%);
+      pointer-events: none;
+    }
+    .newsletter-bar h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .newsletter-bar p { color: var(--text-2); margin-bottom: 28px; font-size: 0.97rem; }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: var(--text-1);
+      font-size: 14px;
+      font-family: var(--font-sans);
+    }
+    .newsletter-form input::placeholder { color: var(--text-3); }
+    .newsletter-form input:focus { outline: none; border-color: var(--cyan); }
+    .newsletter-form button {
+      background: var(--cyan);
+      color: #000;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 14px 24px;
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: none;
+    }
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,212,255,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .article-featured { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+        <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Healthcare Focus</a></li>
+        <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+        <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Free 15-Min Checkup</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-bg-glow glow-1"></div>
+    <div class="page-bg-glow glow-2"></div>
+    <div class="container">
+      <div class="page-hero-tag">Free forever. No email required.</div>
+      <h1>Healthcare Cybersecurity<br/>Resources</h1>
+      <p>Written for practice managers, providers, and administrators — not IT teams. No jargon. No upsell. Just useful information that helps you make better decisions.</p>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section style="padding:80px 0 120px; background:var(--bg);">
+    <div class="container">
+      <div class="filter-bar reveal">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Incident Response</button>
+        <button class="filter-btn">HIPAA & Compliance</button>
+        <button class="filter-btn">Ransomware</button>
+        <button class="filter-btn">Vendor Risk</button>
+        <button class="filter-btn">Access Control</button>
+      </div>
+
+      <div class="articles-grid">
+
+        <!-- Featured Article -->
+        <div class="article-card article-featured reveal" style="--card-delay:0s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-incident">Incident Response</span>
+              <span class="article-read-time">8 min read</span>
+            </div>
+            <h3>What Happens in the First 72 Hours After a Healthcare Breach</h3>
+          </div>
+          <div class="article-card-body">
+            <p>The clock starts the moment you discover a breach — and HIPAA gives you exactly 60 days to notify HHS and affected patients. But the critical decisions happen in the first 72 hours. Most practices either act too slowly, or act without a plan. Here's exactly what should happen, hour by hour, and why each step matters legally and operationally.</p>
+            <span class="article-read-link">Read the full guide →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.1s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-compliance">HIPAA & Compliance</span>
+              <span class="article-read-time">5 min read</span>
+            </div>
+            <h3>The HIPAA Violation Hiding in Your Front Desk Workflow</h3>
+          </div>
+          <div class="article-card-body">
+            <p>Three common front-desk habits that violate HIPAA every day — and most practices don't know it. One of them probably happens at your check-in window right now.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.2s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-vendor">Vendor Risk</span>
+              <span class="article-read-time">6 min read</span>
+            </div>
+            <h3>Why Your EHR Vendor's "HIPAA Compliant" Claim Might Mean Nothing</h3>
+          </div>
+          <div class="article-card-body">
+            <p>Software can be HIPAA-ready. That doesn't mean your practice is HIPAA-compliant. The distinction is the difference between a tool and a policy — and OCR doesn't care which one you misunderstood.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.3s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-ransomware">Ransomware</span>
+              <span class="article-read-time">7 min read</span>
+            </div>
+            <h3>Ransomware in Dentistry: Why Small Practices Are Target #1</h3>
+          </div>
+          <div class="article-card-body">
+            <p>Attackers stopped targeting hospitals years ago. The security is too good. Now they go after 2-chair dental offices — and they're averaging $85,000 per successful attack. Here's why, and exactly what you can do.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.4s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-access">Access Control</span>
+              <span class="article-read-time">4 min read</span>
+            </div>
+            <h3>Can Your Former Employee Still Log Into Your Systems?</h3>
+          </div>
+          <div class="article-card-body">
+            <p>19% of healthcare insider incidents involve former employees. The most common reason: no one disabled their access after they left. Here's a quick checklist to audit your access control right now.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.5s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-hipaa">HIPAA & Compliance</span>
+              <span class="article-read-time">5 min read</span>
+            </div>
+            <h3>What Is a HIPAA Business Associate Agreement — And When Do You Need One?</h3>
+          </div>
+          <div class="article-card-body">
+            <p>Every vendor that touches your patient data needs a BAA. Most practices are missing several. Here's exactly who needs one, what it needs to contain, and what happens if you skip it.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.6s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-ransomware">Ransomware</span>
+              <span class="article-read-time">6 min read</span>
+            </div>
+            <h3>Should You Pay the Ransom? What Healthcare Practices Need to Know</h3>
+          </div>
+          <div class="article-card-body">
+            <p>The FBI says don't pay. The data says 46% of healthcare organizations that pay still don't recover all their data. But when patient care is at stake, the math gets complicated. Here's an honest breakdown.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="--card-delay:0.7s">
+          <div class="article-card-top">
+            <div class="article-meta">
+              <span class="article-tag tag-compliance">HIPAA & Compliance</span>
+              <span class="article-read-time">4 min read</span>
+            </div>
+            <h3>The HIPAA Security Risk Assessment: What It Is, What It Isn't, and Why Yours Is Probably Wrong</h3>
+          </div>
+          <div class="article-card-body">
+            <p>A risk assessment is the most commonly cited HIPAA violation in OCR audits. It's also the most commonly misunderstood. Most "assessments" that practices have on file wouldn't support audit readiness or meet HIPAA Security Rule expectations.</p>
+            <span class="article-read-link">Read the article →</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="newsletter-bar reveal">
+        <h3>New articles every two weeks.</h3>
+        <p>Healthcare-specific. Jargon-free. Unsubscribe anytime — no hard feelings.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="your@practice.com" required />
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+          <p class="footer-tagline">Healthcare cybersecurity.<br/>Personal. Focused. Thorough.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="healthcare.html">Healthcare Focus</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="healthcare.html">Email Security</a></li>
+            <li><a href="healthcare.html">HIPAA Compliance</a></li>
+            <li><a href="healthcare.html">Dark Web Monitoring</a></li>
+            <li><a href="healthcare.html">Penetration Testing</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>The Easy Ask</h4>
+          <p>Free 15-minute checkup. No pitch.</p>
+          <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+          <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+          <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Newsletter form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = newsletterForm.querySelector('button');
+        btn.textContent = 'Subscribed ✓';
+        btn.style.background = 'var(--green)';
+        newsletterForm.querySelector('input').value = '';
+      });
+    }
+  </script>
+</body>
+</html>
