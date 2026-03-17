@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Can Your Former Employee Still Log Into Your Systems? | LockRidge Cybersecurity</title>
+  <meta name="description" content="19% of healthcare insider incidents involve former employees. The most common reason: no one disabled their access after they left. Here's how to audit yours right now." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-former-employee-access.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-former-employee-access.html" />
+  <meta property="og:title" content="Can Your Former Employee Still Log Into Your Systems?" />
+  <meta property="og:description" content="19% of healthcare insider incidents involve former employees. The most common reason: no one disabled their access after they left. Here's how to audit yours right now." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(99,102,241,0.08), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; }
+    .article-callout.warn p { color: var(--text-1); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+
+    .checklist-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 32px 0; }
+    .checklist-block-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .checklist-block ul { margin: 0; }
+    .checklist-block li { color: var(--text-2); font-size: 0.95rem; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    .stat-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; text-align: center; }
+    .stat-item .stat-number { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; color: var(--cyan); display: block; margin-bottom: 6px; }
+    .stat-item .stat-label { font-size: 0.8rem; color: var(--text-3); line-height: 1.4; }
+
+    @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-access">Access Control</span>
+      <span class="article-read-time">4 min read</span>
+    </div>
+    <h1>Can Your Former Employee Still Log Into Your Systems?</h1>
+    <p class="article-hero-sub">19% of healthcare insider incidents involve former employees. The most common reason: no one disabled their access after they left.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>Think about the last person who left your practice. Did someone disable their login to your EHR? Their email? Your practice management software? What about the cloud storage where you keep billing records? The patient intake portal?</p>
+
+      <p>If you're not certain — and most practice managers aren't — there's a real chance they still have access. Not because anyone made a bad decision. Because no one made any decision at all.</p>
+
+      <hr class="article-divider" />
+
+      <h2>Why This Keeps Happening</h2>
+
+      <p>Healthcare practices run lean. When someone gives notice, the immediate problem is coverage — who's going to handle their patient load, who's taking over their billing queue, who's picking up their shifts. The IT side of offboarding is easy to forget, and there's no natural moment that forces it.</p>
+
+      <p>The deeper problem is fragmentation. In most small practices, there's no single person who owns a complete list of what systems exist and who has access to them. The EHR admin handles the clinical software. The billing manager set up the clearinghouse login three years ago and may have since left themselves. The office manager handles scheduling tools. The front desk person knows the social media passwords. No one has the full picture.</p>
+
+      <ul>
+        <li>There's no standard offboarding IT checklist in most small practices</li>
+        <li>Access to different systems is controlled by different staff members, none of whom coordinate on departures</li>
+        <li>Cloud services are often set up with personal accounts or shared passwords that aren't centrally tracked</li>
+        <li>The person responsible for revoking access may themselves leave — taking that institutional knowledge with them</li>
+        <li>Many EHR systems don't automatically lock accounts when a user is inactive — they stay open indefinitely</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <h2>What the Statistics Actually Look Like</h2>
+
+      <p>This isn't a theoretical risk. The Ponemon Institute's research on insider threats in healthcare consistently finds that former employees represent a significant share of unauthorized access incidents — around 19% of insider-related breaches.</p>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-number">19%</span>
+          <span class="stat-label">of healthcare insider incidents involve former employees</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3–5</span>
+          <span class="stat-label">business days: average time to revoke access after departure — when it happens at all</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">$10.9M</span>
+          <span class="stat-label">average cost of a healthcare data breach in 2023 (IBM Cost of a Data Breach Report)</span>
+        </div>
+      </div>
+
+      <p>The cases that actually make it into the news are instructive. A former medical billing employee at a multi-site practice accessed 23,000 patient records over three months after her termination — downloading records and forwarding them to a personal email. The access logs showed consistent logins during business hours, as if she were still employed. No one had disabled her credentials. A former dental office manager in another case emailed a patient list to a competitor's practice on her last day, using access she still had for another six weeks after her official end date.</p>
+
+      <p>Both were preventable. Both resulted in OCR investigations.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Access Audit Checklist</h2>
+
+      <p>Walk through every system your practice uses and ask one question: does this former employee still have an active account? The list is longer than most people expect.</p>
+
+      <h3>// High-Priority Systems</h3>
+
+      <p>These are the systems that directly touch patient data. They should be the first accounts disabled on someone's last day — before they leave the building if possible.</p>
+
+      <div class="checklist-block">
+        <div class="checklist-block-label">Disable immediately on departure</div>
+        <ul>
+          <li>EHR and practice management software (Dentrix, Eaglesoft, Kareo, athenahealth, eClinicalWorks, etc.)</li>
+          <li>Email — Google Workspace or Microsoft 365 account</li>
+          <li>VPN and remote access tools</li>
+          <li>Patient billing portal</li>
+          <li>Patient communication platforms (Klara, Luma, Weave, TigerConnect)</li>
+          <li>Insurance portals — Availity, Change Healthcare, payer-specific portals</li>
+        </ul>
+      </div>
+
+      <h3>// Commonly Missed Systems</h3>
+
+      <p>These are the accounts that get forgotten because they're not part of the day-to-day clinical workflow — but they often contain sensitive information or can be used to access patient data indirectly.</p>
+
+      <div class="checklist-block">
+        <div class="checklist-block-label">Easy to overlook — check these too</div>
+        <ul>
+          <li>Cloud storage: Google Drive shared folders, Dropbox team folders, OneDrive — especially anything shared with the employee individually</li>
+          <li>Online appointment scheduling tools: ZocDoc, Calendly, NexHealth, Phreesia</li>
+          <li>Online fax services: eFax, SRFax, RingCentral fax</li>
+          <li>Social media accounts — if the employee managed them, change passwords and remove their personal accounts from admin access</li>
+          <li>Practice website and any content management systems</li>
+          <li>Any personal accounts used for work purposes (personal Gmail forwarding work email, personal Dropbox with work files)</li>
+        </ul>
+      </div>
+
+      <div class="article-callout warn">
+        <p>Personal accounts are the hardest to track. If a staff member set up a work process using their personal Google account — creating a shared folder, setting up a forwarding rule, logging into a vendor portal with a personal email — you may have no visibility into or control over that access after they leave. This is a structural risk, not just a process risk.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>How to Actually Fix This</h2>
+
+      <p>The good news is that this doesn't require expensive software. It requires a checklist and a designated owner. Four things to do, in order of impact:</p>
+
+      <p><strong style="color:var(--text-1)">Step 1: Create a written offboarding IT checklist.</strong> Every system your practice uses should appear on this list, along with who is responsible for disabling that access. Keep it in a shared location (not someone's personal drive). Update it when you add a new system.</p>
+
+      <p><strong style="color:var(--text-1)">Step 2: Designate one person who owns offboarding every time someone leaves.</strong> This is ideally the office manager or practice administrator. They should have admin access — or know who to call — for every system on the checklist. When someone gives notice, this person gets a task with a due date of the employee's last day.</p>
+
+      <p><strong style="color:var(--text-1)">Step 3: Run a quarterly access audit.</strong> Pull the user list from every system your practice uses. For each account, verify: is this person still employed? Do they still need this level of access? This catches the creeping problem of former employees, but also the more common problem of current employees who have more access than their role requires.</p>
+
+      <p><strong style="color:var(--text-1)">Step 4: Move toward centralized identity management if your practice size supports it.</strong> Google Workspace and Microsoft 365 both offer single sign-on capabilities where one admin can deactivate an account and it cascades across all connected applications. This doesn't solve everything, but it dramatically reduces the number of manual steps required on someone's last day.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The HIPAA Angle</h2>
+
+      <p>Failing to revoke access when an employee departs isn't just a security problem — it's a direct compliance violation. The HIPAA Security Rule, under 45 CFR § 164.308(a)(3), requires covered entities to implement procedures for terminating access to ePHI when employment ends. This is a required implementation specification, not an addressable one. It's not optional.</p>
+
+      <p>The Office for Civil Rights has cited access control failures — including failure to revoke terminated employees' access — in multiple enforcement actions. In OCR's investigation of a breach at a medical practice, investigators noted that the former employee's access had never been revoked and that the organization had no formal offboarding procedure. The absence of a procedure was treated as a separate violation from the breach itself.</p>
+
+      <p>If OCR audits your practice, one of the standard questions is: "Do you have a formal process for revoking access when employees terminate?" If the answer is "sort of" or "we try to handle it," that answer becomes part of the record.</p>
+
+      <div class="article-callout">
+        <p>A corrective action plan stemming from an access control violation typically requires implementing a formal offboarding procedure, updating your workforce security training, and submitting compliance reports to OCR on a regular schedule — often quarterly for two years. The administrative burden alone is significant, before you account for legal fees and potential fines.</p>
+      </div>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Of all the HIPAA risks that small practices face, this is one of the most preventable. Ransomware requires technical defenses. Phishing requires ongoing training. Terminated employee access requires a checklist and the discipline to use it every time someone leaves.</p>
+
+      <p>If you're not sure where your gaps are — which systems don't have an offboarding owner, which former employees might still have active credentials — a security risk assessment maps every access path in your practice and identifies exactly where the problems are. It's a more useful document than a list of systems you think you use.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Not sure who still has access to what?</h2>
+    <p>A 15-minute checkup can identify the access control gaps in your practice — including accounts that should have been disabled months ago.</p>
+    <a href="contact.html" class="btn btn-primary">Book Your Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

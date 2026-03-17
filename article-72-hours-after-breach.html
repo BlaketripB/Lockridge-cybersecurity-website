@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Happens in the First 72 Hours After a Healthcare Breach | LockRidge Cybersecurity</title>
+  <meta name="description" content="A step-by-step guide to the first 72 hours after a healthcare data breach — what to do, who to call, and what HIPAA requires from the moment you discover an incident." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-72-hours-after-breach.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-72-hours-after-breach.html" />
+  <meta property="og:title" content="What Happens in the First 72 Hours After a Healthcare Breach" />
+  <meta property="og:description" content="A step-by-step guide to the first 72 hours after a healthcare data breach — what to do, who to call, and what HIPAA requires from the moment you discover an incident." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(99,102,241,0.08), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; }
+    .article-callout.warn p { color: var(--text-1); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+
+    .timeline-block { border-left: 2px solid rgba(239,68,68,0.25); padding-left: 24px; margin: 32px 0; position: relative; }
+    .timeline-block::before { content: ''; position: absolute; left: -5px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+    .timeline-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+
+    .factor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .factor-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+    .factor-item .factor-num { font-family: var(--font-mono); font-size: 10px; color: var(--indigo); letter-spacing: 0.1em; margin-bottom: 6px; }
+    .factor-item p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 600px) { .factor-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-incident">Incident Response</span>
+      <span class="article-read-time">8 min read</span>
+    </div>
+    <h1>What Happens in the First 72 Hours After a Healthcare Breach</h1>
+    <p class="article-hero-sub">The clock starts the moment you discover a breach. Most practices act too slowly — or act without a plan. Here's exactly what should happen, hour by hour.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <h2>The moment you realize something is wrong</h2>
+
+      <p>It might be a staff member who can't log into the EHR. A screen covered in encrypted filenames. An email from a patient asking why they received a strange message from your practice. Or just a gut feeling that something's off.</p>
+
+      <p>Discovering a breach is disorienting. Your pulse goes up. Your first instinct is to do something — anything. Most people reach for the power button. That's the wrong move, and it's one of the most consequential mistakes you can make in the first hour.</p>
+
+      <p>Before anything else: take a breath, pull out a notepad, and start writing. Record the exact time, which system or device is involved, who found it, and what they saw. This timestamp matters — HIPAA's notification clock starts from the moment of "discovery," and your documentation needs to be airtight.</p>
+
+      <p>Resist the urge to immediately shut down all systems. Resist the urge to call every person you know. Resist the urge to delete the suspicious email. Your first job is to slow down and contain — not destroy.</p>
+
+      <hr class="article-divider" />
+
+      <h2>Hour 0–12: Contain without destroying</h2>
+
+      <h3>// Hour 0–4: Isolate the affected system</h3>
+
+      <p>Containment means cutting off the affected system's ability to communicate — without wiping out the evidence. The right move is to unplug the ethernet cable and disable WiFi on the affected machine. Do not power it off.</p>
+
+      <p>If you're dealing with ransomware, speed matters. Ransomware encrypts files and then typically tries to spread laterally across your network. Every minute the infected system stays connected is another minute it can reach your EHR, your billing system, and every shared drive your staff uses. Pull the network plug first, then think.</p>
+
+      <p>After isolating the machine, your next call should be to your IT provider — not your front desk staff, not a family member who "knows computers." Your IT provider needs to assess what happened before anyone else touches anything.</p>
+
+      <ul>
+        <li>Unplug the ethernet cable from the affected device</li>
+        <li>Disable WiFi on the device (if possible without powering off)</li>
+        <li>Do not log out, restart, or power off the machine</li>
+        <li>Do not delete logs, files, or emails related to the incident</li>
+        <li>Do not run antivirus scans that might overwrite forensic artifacts</li>
+        <li>Call your IT provider and tell them what you saw and when</li>
+      </ul>
+
+      <div class="article-callout warn">
+        <p>Powering off an infected system can destroy the forensic evidence you'll need to prove what happened — or didn't happen — to OCR. Volatile memory (RAM) contains active processes, attacker tooling, and encryption keys that disappear the moment the machine loses power. A forensics firm needs that machine running.</p>
+      </div>
+
+      <h3>// Hour 4–12: Assess the scope</h3>
+
+      <p>Once you've contained the immediate threat, the next job is understanding how bad it actually is. This is where most practices either overcorrect (assume everything is compromised) or undercorrect (assume nothing important was touched). Both are expensive mistakes.</p>
+
+      <p>Work with your IT provider to answer these questions — and write down every answer with a timestamp:</p>
+
+      <ul>
+        <li>Which systems were affected? Just one workstation, or the server too?</li>
+        <li>Was ePHI (electronic Protected Health Information) on any of those systems?</li>
+        <li>Was the ePHI accessed, exfiltrated, or just encrypted and unavailable?</li>
+        <li>How many patient records could potentially be involved?</li>
+        <li>What type of incident is this: ransomware (availability), unauthorized access (confidentiality), or data exfiltration (both)?</li>
+        <li>Are any other systems on the network showing signs of compromise?</li>
+      </ul>
+
+      <p>The distinction between encryption and exfiltration matters enormously for HIPAA purposes. If a ransomware attack encrypted your files but there's no evidence data left your network, OCR may find that the breach presumption is rebutted — meaning you may not need to notify patients. If data was actually exfiltrated and sent to an external server, that's a different situation entirely.</p>
+
+      <hr class="article-divider" />
+
+      <h2>Hour 12–48: Make the hard calls</h2>
+
+      <h3>// Hour 12–24: Legal, insurance, and law enforcement</h3>
+
+      <p>This is the window where most small practices make their most costly mistake: they wait. They want to know more before they call anyone. They don't want to worry people. They're hoping it turns out to be nothing.</p>
+
+      <p>Don't wait. Three calls need to happen in this window, in roughly this order:</p>
+
+      <ul>
+        <li><strong style="color:var(--text-1)">Legal counsel with healthcare experience.</strong> General business attorneys are not equipped for HIPAA breach response. You need someone who has handled OCR investigations. They'll guide every decision from this point forward and their communications may be protected by attorney-client privilege.</li>
+        <li><strong style="color:var(--text-1)">Your cyber insurance carrier.</strong> Most policies have a 24–72 hour notification requirement. Miss it, and you may lose coverage for the entire incident. Your carrier will also often direct you to a preferred forensics firm and breach coach — use them.</li>
+        <li><strong style="color:var(--text-1)">The FBI, if ransomware is involved.</strong> This surprises many practice managers, but the FBI's Cyber Division actively investigates healthcare ransomware. Reporting doesn't obligate you to anything, and the FBI sometimes has decryption keys or intelligence about the specific ransomware variant that can help you recover faster. Call your local field office.</li>
+      </ul>
+
+      <p>Your insurer will typically recommend — or require — bringing in a forensics firm. Don't skip this step to save money. The forensics report is what gives you the documented basis for your HIPAA risk assessment, and it's what you'll hand to OCR if they come calling.</p>
+
+      <h3>// Hour 24–48: Documentation and notification prep</h3>
+
+      <p>By now you should have a clearer picture of what happened. This is when your written documentation becomes critical. Start a formal incident log — a running record of every action taken, by whom, at what time. This log will be central to your OCR response if a complaint is filed.</p>
+
+      <ul>
+        <li>Compile a list of all potentially affected patients (name, contact information, what PHI was exposed)</li>
+        <li>Begin drafting patient notification letters with your attorney's guidance — OCR specifies what these must include</li>
+        <li>Do not send any notifications yet — wait for legal review</li>
+        <li>Notify any affected business associates (EHR vendor, billing company, clearinghouse) — they may have their own notification obligations</li>
+        <li>Preserve all system logs, email records, and forensic images — treat them as legal documents</li>
+      </ul>
+
+      <div class="article-callout">
+        <p>Your notification letters must include: a description of what happened, the types of PHI involved, steps patients should take to protect themselves, what your practice is doing to investigate, and contact information for questions. OCR's website has sample language. Your attorney should review before anything goes out.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>The HIPAA timeline you need to understand</h2>
+
+      <p>HIPAA's Breach Notification Rule sets specific deadlines, and they run from the date of discovery — not the date the breach actually happened. If you discovered a breach on March 1st, your clock started March 1st, even if the attacker had been in your system since January.</p>
+
+      <ul>
+        <li><strong style="color:var(--text-1)">Affected individuals:</strong> Must be notified within 60 calendar days of discovery</li>
+        <li><strong style="color:var(--text-1)">HHS/OCR (500+ patients):</strong> Report to the HHS Breach Portal within 60 days of discovery</li>
+        <li><strong style="color:var(--text-1)">HHS/OCR (fewer than 500 patients):</strong> Report annually, within 60 days of the end of the calendar year in which the breach occurred</li>
+        <li><strong style="color:var(--text-1)">Media notification:</strong> Required if 500 or more residents of a single state or jurisdiction are affected — notification goes to major print or broadcast media in that area</li>
+      </ul>
+
+      <p>Not every unauthorized access automatically triggers full notification. HIPAA allows covered entities to conduct a risk assessment to determine whether there is a "low probability that the PHI has been compromised." If you can document that conclusion, notification may not be required. But this determination has to be documented — you can't just decide it informally and move on.</p>
+
+      <p>OCR applies a four-factor test when evaluating whether notification is required:</p>
+
+      <div class="factor-grid">
+        <div class="factor-item">
+          <div class="factor-num">FACTOR 01</div>
+          <p>The nature and extent of the PHI involved, including the types of identifiers and the likelihood of re-identification</p>
+        </div>
+        <div class="factor-item">
+          <div class="factor-num">FACTOR 02</div>
+          <p>Who accessed or could have accessed the PHI — an authorized employee or an external attacker?</p>
+        </div>
+        <div class="factor-item">
+          <div class="factor-num">FACTOR 03</div>
+          <p>Whether the PHI was actually acquired or viewed, or whether access was opportunistic without meaningful exposure</p>
+        </div>
+        <div class="factor-item">
+          <div class="factor-num">FACTOR 04</div>
+          <p>The extent to which the risk to the PHI has been mitigated — was the data recovered, was the attacker identified?</p>
+        </div>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>Hour 48–72: Keeping the practice running</h2>
+
+      <p>While the response team works the breach, your practice still has patients. Staff need to know what to do — and what not to do. This is where a lot of practices improvise poorly.</p>
+
+      <ul>
+        <li>Activate paper-based protocols for intake, prescriptions, and scheduling — if you don't have them written down, you're improvising under pressure</li>
+        <li>Brief staff on what happened at a high level: "We've had a security incident and we're working with IT and legal to respond. Please do not discuss this externally or post anything on social media."</li>
+        <li>Designate a single point of contact for external questions — this should not be a front desk employee</li>
+        <li>Contact your EHR vendor if their systems were involved — they may have their own notification obligations under their Business Associate Agreement</li>
+        <li>Document any patient care impacts that resulted from system downtime</li>
+      </ul>
+
+      <p>The social media instruction matters more than most administrators realize. A well-meaning staff member posting "rough week at the office, dealing with a hacker situation" can compromise your legal position, trigger media attention before you're ready, and may violate HIPAA if it discloses information about the incident prematurely.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What OCR actually looks for</h2>
+
+      <p>When OCR investigates a breach — whether triggered by a patient complaint or a report you filed yourself — they are not primarily looking to punish you for being attacked. They're looking at how you responded.</p>
+
+      <p>The questions OCR asks in an investigation are revealing:</p>
+
+      <ul>
+        <li>Did you have a written incident response plan before the breach occurred?</li>
+        <li>Did you follow that plan when the incident happened?</li>
+        <li>Did you document your actions in real time with timestamps?</li>
+        <li>Did you notify affected individuals and HHS within the required timeframes?</li>
+        <li>Did you conduct and document a proper risk assessment?</li>
+        <li>Did you take corrective action after the breach to prevent recurrence?</li>
+      </ul>
+
+      <p>Practices that respond well — that can hand OCR a documented timeline of their response, a completed risk assessment, and evidence that notifications went out on time — frequently avoid fines even after significant breaches. Practices that can't produce documentation, missed notification deadlines, or never had a response plan are the ones that end up in settlement agreements and corrective action plans.</p>
+
+      <div class="article-callout">
+        <p>OCR's Resolution Agreements are public. Reading through them, you'll notice a pattern: the fines aren't just for being breached. They're for the pre-existing failures — no risk analysis, no policies, no workforce training — that OCR discovers when they start digging.</p>
+      </div>
+
+      <h2>The thing that actually determines your outcome</h2>
+
+      <p>After all the timelines and checklists, two factors determine whether a healthcare breach becomes a manageable incident or a practice-altering disaster: your backups and your plan.</p>
+
+      <p>If you have current, tested, offsite backups — and by "current" we mean updated within the last 24 hours, and by "tested" we mean you've actually restored from them — ransomware becomes a nuisance rather than a catastrophe. You lose a day of operations, not your entire practice history. If you don't have those backups, you're at the mercy of the attacker.</p>
+
+      <p>And if you have a written incident response plan — one that's been reviewed with your team, that has specific names and phone numbers in it, that your staff has practiced at least once — the first four hours of a breach look completely different. You're not improvising. You're executing.</p>
+
+      <p>If you don't have either of those things today, that's the gap to close first. It doesn't require a massive project — a 15-minute conversation with someone who knows what they're looking at is a reasonable starting point.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Don't wait until there's a breach to make a plan.</h2>
+    <p>A 15-minute checkup can identify whether your practice has the backups, response plan, and detection tools you'd need when the clock starts ticking.</p>
+    <a href="contact.html" class="btn btn-primary">Book Your Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

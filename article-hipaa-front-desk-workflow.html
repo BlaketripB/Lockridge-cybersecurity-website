@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The HIPAA Violation Hiding in Your Front Desk Workflow | LockRidge Cybersecurity</title>
+  <meta name="description" content="Three common front-desk habits that violate HIPAA every single day — and most healthcare practices don't know it. One of them is probably happening at your check-in window right now." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-hipaa-front-desk-workflow.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-hipaa-front-desk-workflow.html" />
+  <meta property="og:title" content="The HIPAA Violation Hiding in Your Front Desk Workflow" />
+  <meta property="og:description" content="Three common front-desk habits that violate HIPAA every single day — and most healthcare practices don't know it. One of them is probably happening at your check-in window right now." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(245,158,11,0.06), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; }
+    .article-callout.warn p { color: var(--text-1); }
+    .article-callout.amber { border-left-color: #f59e0b; }
+    .article-callout.amber p { color: var(--text-1); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+
+    .violation-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); font-family: var(--font-mono); font-size: 11px; color: #ef4444; font-weight: 700; margin-right: 10px; vertical-align: middle; flex-shrink: 0; }
+
+    .fix-box { background: rgba(0,212,255,0.04); border: 1px solid rgba(0,212,255,0.15); border-radius: var(--radius); padding: 20px 24px; margin: 20px 0 32px; }
+    .fix-box-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+    .fix-box ul { margin: 0; }
+    .fix-box li { font-size: 0.9rem; color: var(--text-2); margin-bottom: 6px; }
+
+    .scenario-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-2); line-height: 1.7; }
+    .scenario-block .scenario-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 8px; }
+    .scenario-block .scenario-bad { color: #ef4444; }
+    .scenario-block .scenario-good { color: #22c55e; }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-compliance">HIPAA &amp; Compliance</span>
+      <span class="article-read-time">5 min read</span>
+    </div>
+    <h1>The HIPAA Violation Hiding in Your Front Desk Workflow</h1>
+    <p class="article-hero-sub">Three habits that happen at almost every front desk in America — and all three are HIPAA violations. One of them is probably happening at your practice right now.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>Most practice managers think about HIPAA in terms of software — encrypted email, secure EHR access, password policies. That's not wrong, but it misses where the majority of HIPAA complaints actually originate.</p>
+
+      <p>The front desk is where your practice is most exposed. It's the place where patient information is spoken out loud, written on paper, displayed on monitors, and handled by staff under constant pressure to move people through quickly. The conditions are almost perfect for HIPAA violations, and most of them happen without anyone intending harm.</p>
+
+      <p>OCR enforces HIPAA through complaint investigations. A patient doesn't need a lawyer or any documentation to file a complaint — they just need to feel that their privacy was compromised. The investigation that follows is free for them and potentially very expensive for you. Three of the most common triggers are so routine that most practices don't recognize them as violations at all.</p>
+
+      <hr class="article-divider" />
+
+      <h2><span class="violation-number">1</span> The Paper Sign-In Sheet</h2>
+
+      <p>The traditional clipboard sign-in sheet — where patients write their name, appointment time, and reason for visit — has been a fixture of medical offices for decades. It's also a HIPAA problem that's been documented in OCR enforcement actions.</p>
+
+      <p>The issue is straightforward: when a patient signs in, they can read what every previous patient wrote. Name, appointment time, and especially the reason for the visit. A waiting room full of patients becomes a room full of people who have inadvertently accessed each other's protected health information.</p>
+
+      <p>OCR's official guidance on sign-in sheets is nuanced but clear: they are permitted under HIPAA, but only if the information visible to other patients is limited to the minimum necessary. In practice, this means the reason for visit must not be visible to other patients. A sheet that says "John Smith, 2:00pm, HIV follow-up" is a violation. A sheet that says "John Smith, 2:00pm" with prior entries covered is more defensible — though still not ideal.</p>
+
+      <div class="article-callout amber">
+        <p>OCR investigations have found practices liable for HIPAA violations partly because their sign-in sheets included the patient's reason for visit — information visible to everyone in the waiting room. The fines in those cases were not solely for the sign-in sheet, but the sheet was cited as evidence of a broader failure to implement reasonable safeguards.</p>
+      </div>
+
+      <div class="fix-box">
+        <div class="fix-box-label">What to do instead</div>
+        <ul>
+          <li>Use a sign-in sheet that covers each row after it's signed — OCR sells nothing, but cover-sheet clipboards exist specifically for this purpose</li>
+          <li>Remove the "reason for visit" column entirely from paper sign-ins</li>
+          <li>Switch to a digital check-in kiosk or tablet — patients see only their own entry</li>
+          <li>If you use paper, have staff shred or remove the sheet once it's full rather than letting it accumulate all day</li>
+        </ul>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2><span class="violation-number">2</span> Screens Facing the Wrong Direction</h2>
+
+      <p>Walk up to a typical check-in window. How much of the screen behind the front desk can you read from the patient's side? In many practices, the answer is: enough. Enough to see a patient name, an appointment type, a billing code, a chart note left open from the previous patient.</p>
+
+      <p>HIPAA's minimum necessary standard requires that patient information is only disclosed to the extent needed for the current purpose. A patient checking in for their own appointment has no legitimate reason to view the record of the patient who was just called back. But if the screen is angled toward the window, that's exactly what happens.</p>
+
+      <p>This is one of the most physically simple violations to fix, and one of the most commonly overlooked. The solution is not expensive software — it's monitor placement and a $30–$60 privacy screen filter.</p>
+
+      <div class="scenario-block">
+        <div class="scenario-label">Common scenario</div>
+        <span class="scenario-bad">Patient walks to check-in window. The previous patient's chart is still open on the monitor, partially visible. New patient can read the name and appointment reason while staff pulls up their own record.</span>
+      </div>
+
+      <div class="fix-box">
+        <div class="fix-box-label">What to do instead</div>
+        <ul>
+          <li>Install a privacy screen filter on all front desk monitors — these limit the viewing angle so only the person directly in front can read the screen</li>
+          <li>Reposition monitors so the screen faces away from the patient window</li>
+          <li>Set workstations to auto-lock after 60 seconds of inactivity — this closes open charts when staff step away</li>
+          <li>Train staff to close or minimize patient records before approaching the check-in window to speak with a patient</li>
+          <li>Apply the minimum necessary standard to staff access as well — front desk staff don't need to see clinical notes to schedule appointments</li>
+        </ul>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2><span class="violation-number">3</span> Phone Calls in the Wrong Place</h2>
+
+      <p>Appointment confirmation calls are standard practice. They're also one of the most common sources of inadvertent PHI disclosure — and one of the most preventable.</p>
+
+      <p>The problem happens when a staff member makes or takes a patient call from the front desk area, within earshot of the waiting room, and says something that identifies the patient's condition, provider, or treatment. HIPAA requires "reasonable safeguards" to prevent incidental disclosures. Making calls in a shared space where other patients can hear the conversation is not a reasonable safeguard.</p>
+
+      <p>Voicemails carry their own risk. Leaving a detailed message — "Hi, this is calling to confirm your appointment with Dr. [name] for your follow-up after your [procedure/condition]" — discloses diagnosis or treatment information to whoever picks up that phone. Under HIPAA, patients have the right to request confidential communications, and practices must accommodate reasonable requests. But even absent a specific request, leaving a voicemail that would be informative to a curious family member is a risk worth eliminating.</p>
+
+      <div class="scenario-block">
+        <div class="scenario-label">The specific problem</div>
+        <span class="scenario-bad">"Hi, this is Dr. [name]'s office calling to confirm your appointment Thursday at 2pm for your mental health evaluation. Please call us back at [number]."</span><br /><br />
+        <span class="scenario-good">Better: "Hi, this is [practice name] calling for [patient name] regarding an upcoming appointment. Please call us back at [number] to confirm. Thank you."</span>
+      </div>
+
+      <div class="fix-box">
+        <div class="fix-box-label">What to do instead</div>
+        <ul>
+          <li>Make outbound patient calls from a private area or room — not the front desk with a waiting room behind you</li>
+          <li>Keep voicemails to the minimum: practice name, callback number, and a request to call back — no diagnosis, no provider name, no condition details</li>
+          <li>Ask patients during intake whether they have a preferred callback number and whether it's safe to leave a message</li>
+          <li>If a patient is standing at the window and you need to take or complete a sensitive call, ask the patient to take a seat and step away from the window</li>
+        </ul>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>Two more that are easy to miss</h2>
+
+      <p>The three violations above are the most common, but they're not the only front desk exposure points. Two others come up regularly in OCR investigations and staff training scenarios:</p>
+
+      <h3>// Personal devices and text messages</h3>
+
+      <p>A staff member texts a colleague: "Can you pull up [patient name]'s chart? She's on her way and needs a new Rx." That message just transmitted PHI over an unencrypted personal text message on a device your practice does not manage, does not audit, and cannot wipe if the phone is lost or stolen.</p>
+
+      <p>HIPAA requires that ePHI be transmitted only through encrypted channels. Personal SMS does not meet that standard. This includes texting patient names, appointment details, prescriptions, or anything else that qualifies as PHI — even internally between staff members. Your practice needs a policy on this, and staff need to understand that "it's just an internal message" is not a HIPAA exemption.</p>
+
+      <h3>// Calling out full names and conditions in the waiting room</h3>
+
+      <p>There is a difference between calling "John?" into the waiting room and calling "John Smith? You're here for your colonoscopy prep appointment?" The second version discloses PHI to everyone in the room. HIPAA's guidance on incidental disclosures permits calling out a patient's first name to bring them back — it does not permit combining identifiers with clinical information in a shared space.</p>
+
+      <p>The same applies to conversations at the front desk where clinical topics are discussed loudly enough for waiting patients to hear. "Oh, yes, he's here for his weekly wound care" — said to a colleague while other patients are present — is the kind of incidental disclosure that generates OCR complaints.</p>
+
+      <hr class="article-divider" />
+
+      <h2>Why these matter more than you think</h2>
+
+      <p>None of these violations require a malicious actor. No hacker, no stolen laptop, no ransomware. Just the ordinary workflow of a busy front desk, and a patient who felt their privacy wasn't respected.</p>
+
+      <p>That patient can file an OCR complaint online in about ten minutes, at no cost, with no attorney. OCR will contact your practice within days. From that point, you're in an investigation — and even if no fine results, the corrective action plan process can consume months of administrative time and require documentation of policies, training records, and risk assessments you may not have.</p>
+
+      <p>Practices that have completed a formal Security Risk Assessment — and documented their findings and the corrections they made — are in a substantially better position when OCR comes calling. Not because a risk assessment is a magic shield, but because it demonstrates the kind of good-faith compliance effort that OCR weighs heavily in determining whether to pursue civil monetary penalties.</p>
+
+      <div class="article-callout">
+        <p>HIPAA compliance at the front desk doesn't require expensive software. It requires awareness, written policies, and a brief conversation with your staff about what they're doing and why it matters. Most front desk staff genuinely don't know these are violations — they're doing what they were shown when they started. A 30-minute training session changes that.</p>
+      </div>
+
+      <p>A Security Risk Assessment will surface these issues — along with the technical ones in your EHR and network — before a patient complaint does. It's the first step OCR expects you to have taken, and the first thing they ask about when they start an investigation.</p>
+
+      <p>If your practice hasn't done one recently, that's a reasonable place to start the conversation.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Know where your exposure is before a patient does.</h2>
+    <p>A free 15-minute checkup can tell you whether your practice has the policies, training, and technical safeguards in place — or where the gaps are.</p>
+    <a href="contact.html" class="btn btn-primary">Book Your Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

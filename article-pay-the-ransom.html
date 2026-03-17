@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Should You Pay the Ransom? What Healthcare Practices Need to Know | LockRidge Cybersecurity</title>
+  <meta name="description" content="The FBI says don't pay. But 46% of healthcare organizations that pay still don't recover all their data. Here's an honest breakdown of the ransom decision — and what actually determines your outcome." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-pay-the-ransom.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-pay-the-ransom.html" />
+  <meta property="og:title" content="Should You Pay the Ransom? What Healthcare Practices Need to Know" />
+  <meta property="og:description" content="The FBI says don't pay. But 46% of healthcare organizations that pay still don't recover all their data. Here's an honest breakdown of the ransom decision — and what actually determines your outcome." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(99,102,241,0.08), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; border-color: rgba(239,68,68,0.25); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+    .cost-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 0.95rem; }
+    .cost-table th { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); text-align: left; padding: 8px 16px; border-bottom: 1px solid var(--border); }
+    .cost-table td { padding: 12px 16px; color: var(--text-2); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .cost-table tr:last-child td { color: var(--text-1); font-weight: 600; border-bottom: none; border-top: 1px solid var(--border); }
+    .cost-table .cost-val { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-1); }
+    .cost-table .cost-total { color: var(--red); }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← BACK TO RESOURCES</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-ransomware">Ransomware</span>
+      <span class="article-read-time">6 min read</span>
+    </div>
+    <h1>Should You Pay the Ransom? What Healthcare Practices Need to Know</h1>
+    <p class="article-hero-sub">The FBI says don't pay. The data says 46% of healthcare organizations that pay still don't recover all their data. When patient care is at stake, the math gets complicated.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>You've just discovered that every file on your server is encrypted. Your EHR is down. Your appointment schedule is gone. There's a ransom note on your screen with a countdown timer and a Bitcoin address. What do you do?</p>
+
+      <p>This is a decision that dozens of small healthcare practices face every year — and it's a decision that almost none of them are prepared to make clearly under pressure. The clock is ticking, staff are standing around, patients are showing up for appointments you can't access, and someone is asking whether you want to transfer cryptocurrency to a criminal organization.</p>
+
+      <p>Here's everything you need to understand before that moment arrives.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Official Guidance — and Its Limits</h2>
+
+      <p>The FBI and CISA are consistent on this: don't pay the ransom. Their reasoning is sound. Paying funds criminal organizations. It doesn't guarantee recovery. And perhaps most importantly, it marks your practice as a paying target — meaning you're more likely to be hit again.</p>
+
+      <p>There's also a legal dimension that most practices don't know about. Many ransomware groups operate out of countries under U.S. Treasury OFAC sanctions — Russia, North Korea, Iran. If you pay a ransom to one of those groups, you may be in violation of U.S. sanctions law, even if you had no idea who they were when you paid. The Treasury Department's OFAC has issued advisories making clear that paying ransoms to sanctioned entities carries civil and potentially criminal liability for the victim — not just the attacker.</p>
+
+      <p>This is not theoretical. Practices that have paid ransoms have faced follow-up scrutiny from OFAC. A $100,000 ransom payment to the wrong group can create regulatory exposure on top of your breach notification obligations.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Data Behind "Don't Pay"</h2>
+
+      <p>Sophos's 2023 State of Ransomware in Healthcare report surveyed 381 healthcare organizations that experienced ransomware attacks. The findings challenge the assumption that paying resolves the problem:</p>
+
+      <ul>
+        <li>46% of organizations that paid the ransom did not recover all of their data</li>
+        <li>The average ransom payment in healthcare was $197,000 in 2023</li>
+        <li>Average recovery time after paying: 3–4 weeks — roughly the same as not paying</li>
+        <li>Healthcare had the highest rate of data encryption (75%) of any sector studied</li>
+        <li>Only 22% of healthcare organizations stopped an attack before data was encrypted</li>
+      </ul>
+
+      <p>There's another dimension that changes the calculation entirely: double extortion. Modern ransomware groups don't just encrypt your files — they exfiltrate them first. That means even if you pay and get a working decryption key, the attackers already have a copy of your patient data. Paying doesn't stop them from publishing it, selling it, or using it for additional extortion later.</p>
+
+      <div class="article-callout warn">
+        <p>Paying the ransom is not recovery. It's buying a decryption key that may or may not work, from criminals who have no obligation to honor the deal — and who already have a copy of your data regardless of what you pay.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>When Practices Pay Anyway — and Why</h2>
+
+      <p>Despite the official guidance and the unfavorable statistics, many healthcare practices do pay. Understanding why helps clarify what the actual decision factors are.</p>
+
+      <p><strong style="color:var(--text-1)">Patient safety.</strong> When your EHR is down and you have active patients with complex medication regimens, upcoming surgeries, or chronic care continuity needs, the calculus changes. A mental health practice can't safely manage its caseload from memory. A primary care clinic with immunocompromised patients can't afford three weeks of manual workarounds. The ransom decision is sometimes a patient safety decision, and that's a legitimate consideration.</p>
+
+      <p><strong style="color:var(--text-1)">Cyber insurance coverage.</strong> Many cyber liability policies cover ransom payments. When a carrier is paying the ransom — not you — the financial calculus shifts. Carriers often have ransomware negotiators on staff and relationships with groups that can sometimes reduce demands significantly (40–60% is common).</p>
+
+      <p><strong style="color:var(--text-1)">Cost comparison.</strong> $100,000 in ransom vs. $400,000 in downtime, recovery labor, forensics, and notification — practices do this math. It's not irrational, even if it's not advisable from a systemic standpoint.</p>
+
+      <p><strong style="color:var(--text-1)">Time pressure.</strong> Many groups publish data if payment doesn't arrive within 72 hours. The threat of a public data dump — with patient records searchable online — can feel more urgent than the threat of continued downtime.</p>
+
+      <p>But here's the pattern that underlies almost every case where a practice feels they have no choice: they don't have good backups. When you can restore from a clean backup made 24 hours ago, the ransom conversation ends immediately. When you can't, the criminals have leverage they shouldn't have.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Only Thing That Actually Determines Your Outcome</h2>
+
+      <p>This is the part of the ransom conversation that almost never gets said plainly enough.</p>
+
+      <p>If you have clean, current, tested offsite backups, you don't pay. You restore. Your downtime is days, not weeks. Your data is yours. The attack is an incident, not a catastrophe.</p>
+
+      <p>If you don't have reliable backups — or if your backups were also encrypted because they were on the same network — you are negotiating with criminals or losing your data. Those are your options.</p>
+
+      <p>The ransom decision is almost always made 6 months before the attack, when someone decided whether or not to implement and test a proper backup strategy. The 72-hour deadline feels like the decision point, but it isn't. By then, the outcome is largely predetermined.</p>
+
+      <div class="article-callout">
+        <p>The right question isn't "would I pay the ransom?" The right question is: "If I came in tomorrow and every file was encrypted, could I restore from backup within 48 hours?" If the answer is anything other than a confident yes, that's the gap to fix.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>The Real Cost Calculation</h2>
+
+      <p>The ransom payment, if it happens, is never the whole number. Here's what a realistic breach cost picture looks like for a small to mid-size healthcare practice:</p>
+
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Cost Item</th>
+            <th>Typical Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ransom payment (if paid)</td>
+            <td class="cost-val">$50,000 – $300,000</td>
+          </tr>
+          <tr>
+            <td>Forensics firm (required by most cyber insurers)</td>
+            <td class="cost-val">$15,000 – $50,000</td>
+          </tr>
+          <tr>
+            <td>Downtime: 2–4 weeks lost revenue</td>
+            <td class="cost-val">$40,000 – $200,000+</td>
+          </tr>
+          <tr>
+            <td>Recovery labor (rebuilding systems, restoring data)</td>
+            <td class="cost-val">$20,000 – $80,000</td>
+          </tr>
+          <tr>
+            <td>Patient notification (printing, mailing, call center)</td>
+            <td class="cost-val">$5,000 – $30,000</td>
+          </tr>
+          <tr>
+            <td>HIPAA breach reporting, OCR investigation, legal fees</td>
+            <td class="cost-val">$10,000 – $100,000+</td>
+          </tr>
+          <tr>
+            <td>Patient churn and reputation damage</td>
+            <td class="cost-val">Hard to quantify, real</td>
+          </tr>
+          <tr>
+            <td><strong>Real-world example: mid-size dental group</strong></td>
+            <td class="cost-val cost-total">$65K ransom + $312K other = $377K total</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Cyber insurance, when properly scoped and maintained, covers many of these line items. But coverage has limits, deductibles, and exclusions — and premiums have increased significantly as ransomware claims have risen. The economics of good security controls and tested backups compare favorably to the economics of a breach in almost every scenario.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What To Do the Moment You Discover an Attack</h2>
+
+      <p>If your systems are showing signs of an active ransomware attack — encrypted files, ransom notes, anything you can't explain — here is the sequence that matters:</p>
+
+      <ul>
+        <li><strong style="color:var(--text-1)">Isolate immediately.</strong> Disconnect affected systems from the network. Unplug ethernet. Disable Wi-Fi. The goal is to stop the spread before more systems are encrypted. Do not turn off the machines — some forensic evidence lives in RAM and is lost on shutdown.</li>
+        <li><strong style="color:var(--text-1)">Call your IT provider.</strong> They need to assess scope, contain the spread, and begin the documentation required for insurance and reporting.</li>
+        <li><strong style="color:var(--text-1)">Call your cyber insurance carrier.</strong> Do this before you do almost anything else. Carriers activate incident response teams — forensics, legal, negotiators — and most policies require notification within a specific window. Taking actions before involving your carrier can create coverage complications.</li>
+        <li><strong style="color:var(--text-1)">Contact the FBI.</strong> Call 1-800-CALL-FBI or report at ic3.gov. The FBI's ransomware unit sometimes has decryption keys for known groups and can provide intelligence about who you're dealing with. This doesn't cost you anything and it matters.</li>
+        <li><strong style="color:var(--text-1)">Do not pay anything</strong> until you've consulted your insurance carrier, a qualified attorney, and checked the OFAC sanctions list. Your carrier almost certainly has people who handle this professionally.</li>
+        <li><strong style="color:var(--text-1)">Document everything.</strong> Screenshots of ransom notes, timestamps, which systems are affected, when you first noticed — all of this is required for breach notification, OCR reporting, and insurance claims.</li>
+      </ul>
+
+      <p>One thing you should not do: Google the ransomware group, send them a test message, or attempt negotiation on your own before your insurer and legal counsel are involved. Amateur negotiation has made outcomes worse in documented cases.</p>
+
+      <hr class="article-divider" />
+
+      <p>The best time to think through the ransom decision is right now, not at 2am on a Tuesday when your screens are showing countdown timers. The question isn't "would I pay?" — it's "will I be in a position where I have to?" That comes down to backups, incident response planning, and how protected your systems are before anything goes wrong.</p>
+
+      <p>If you're not sure where your practice stands on any of those, that's the conversation worth having.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Not sure if your backups would actually save you?</h2>
+    <p>A 15-minute conversation can tell you whether your practice is in a position to recover from ransomware — or whether you'd be negotiating. No pitch, no pressure.</p>
+    <a href="contact.html" class="btn btn-primary">Book a Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

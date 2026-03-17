@@ -1588,9 +1588,9 @@ input, select, textarea { font-family: inherit; }
   .service-card { padding: 28px 24px; }
 }
 
-/* ── HERO H1 + SUBHEADLINE ─────────────────────────────── */
+/* ── SEO / New Sections ─────────────────────────────────────── */
 .hero-h1 {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -1598,9 +1598,8 @@ input, select, textarea { font-family: inherit; }
   margin-bottom: 20px;
   animation: fadeSlideDown 0.8s var(--ease-smooth) both;
 }
-
 .hero-sub {
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   color: var(--text-2);
   line-height: 1.7;
   max-width: 640px;
@@ -1608,17 +1607,19 @@ input, select, textarea { font-family: inherit; }
   animation: fadeSlideDown 0.9s var(--ease-smooth) both;
 }
 
-/* ── HEALTHCARE FOCUS STRIP ────────────────────────────── */
+/* Healthcare Focus Strip */
 .healthcare-focus-strip {
   padding: 100px 0;
   background: var(--bg);
 }
+@media (max-width: 768px) { .healthcare-focus-strip { padding: 64px 0; } }
 
-/* ── INDUSTRIES SECTION ────────────────────────────────── */
+/* Industries Section */
 .industries-section {
   padding: 100px 0;
   background: var(--bg-2);
 }
+@media (max-width: 768px) { .industries-section { padding: 64px 0; } }
 
 .industries-grid {
   display: grid;
@@ -1626,39 +1627,34 @@ input, select, textarea { font-family: inherit; }
   gap: 16px;
   margin: 48px 0 40px;
 }
+@media (max-width: 900px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .industries-grid { grid-template-columns: 1fr 1fr; gap: 12px; } }
 
 .industry-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  padding: 28px 20px;
+  padding: 28px 16px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-2);
   font-weight: 500;
   transition: border-color 0.25s, box-shadow 0.25s, color 0.25s;
 }
-
 .industry-card:hover {
   border-color: var(--border-glow);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   color: var(--text-1);
 }
-
 .industry-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   color: var(--cyan);
   opacity: 0.8;
-}
-
-.industry-icon svg {
-  width: 100%;
-  height: 100%;
 }
 
 .local-area-note {
@@ -1673,22 +1669,4 @@ input, select, textarea { font-family: inherit; }
   max-width: 640px;
   margin: 0 auto;
 }
-
-.local-area-note strong {
-  color: var(--text-1);
-}
-
-@media (max-width: 1024px) {
-  .industries-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .industries-grid { grid-template-columns: repeat(2, 1fr); }
-  .healthcare-focus-strip { padding: 80px 0; }
-  .industries-section { padding: 80px 0; }
-}
-
-@media (max-width: 480px) {
-  .industries-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .industry-card { padding: 20px 12px; font-size: 0.82rem; }
-}
+.local-area-note strong { color: var(--text-1); }

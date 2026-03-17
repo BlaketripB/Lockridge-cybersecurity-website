@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your EHR Vendor's "HIPAA Compliant" Claim Might Mean Nothing | LockRidge Cybersecurity</title>
+  <meta name="description" content='"HIPAA compliant" software doesn't make your practice HIPAA compliant. Here's what vendors are actually responsible for — and what remains entirely your problem.' />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-ehr-vendor-hipaa-claim.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-ehr-vendor-hipaa-claim.html" />
+  <meta property="og:title" content='Why Your EHR Vendor's "HIPAA Compliant" Claim Might Mean Nothing' />
+  <meta property="og:description" content='"HIPAA compliant" software doesn't make your practice HIPAA compliant. Here's what vendors are actually responsible for — and what remains entirely your problem.' />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(99,102,241,0.08), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">&#8592; Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-vendor">Vendor Risk</span>
+      <span class="article-read-time">6 min read</span>
+    </div>
+    <h1>Why Your EHR Vendor's "HIPAA Compliant" Claim Might Mean Nothing</h1>
+    <p class="article-hero-sub">Software can be HIPAA-ready. That doesn't mean your practice is HIPAA-compliant. The distinction matters — and OCR doesn't care which one you misunderstood.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>Every EHR vendor, cloud storage provider, and billing platform says it. "HIPAA Compliant." It's on their homepage, in their marketing, probably in the contract you signed. And it gives a lot of practice managers a false sense of security — one that can cost them dearly when something goes wrong.</p>
+
+      <p>The phrase has become so ubiquitous that it's essentially lost meaning. But the consequences of misunderstanding it are very real: OCR fines, corrective action plans, and the particularly uncomfortable experience of explaining to your patients that their health records were exposed.</p>
+
+      <h2>What "HIPAA Compliant Software" Actually Means</h2>
+
+      <p>When a vendor says their software is "HIPAA compliant," what they're really saying is that their software was built with features that <em>can support</em> HIPAA compliance. Think encryption at rest and in transit, role-based access controls, audit logging, automatic session timeouts, and breach notification capabilities.</p>
+
+      <p>These are necessary ingredients. They are not the meal.</p>
+
+      <ul>
+        <li>A vendor's HIPAA compliance means their infrastructure meets HIPAA's technical safeguard requirements</li>
+        <li>It does NOT mean you are using those features correctly — or at all</li>
+        <li>It does NOT mean your workflows, staff behaviors, or internal policies are compliant</li>
+        <li>It does NOT mean the other systems in your environment are covered</li>
+        <li>HIPAA compliance applies to your entire organization — not any single tool</li>
+      </ul>
+
+      <p>Think of it this way: a hospital-grade lock on a door is an excellent security control. But it means nothing if you prop the door open. The vendor gave you the lock. Whether you use it is entirely on you.</p>
+
+      <h2>The Covered Entity vs. Business Associate Distinction</h2>
+
+      <p>HIPAA draws a clear line between two types of organizations. Understanding this line is the foundation of understanding why "HIPAA compliant software" doesn't make your practice compliant.</p>
+
+      <p><strong>You are the Covered Entity.</strong> As a healthcare practice, you create, receive, maintain, and transmit protected health information (PHI). That makes you the party primarily responsible under HIPAA. The legal and financial risk sits with you first.</p>
+
+      <p><strong>Your EHR vendor is a Business Associate.</strong> They process PHI on your behalf — storing records, transmitting data, generating reports. They have significant obligations under HIPAA, but they are operating in service of your practice's activities.</p>
+
+      <p>A Business Associate Agreement (BAA) is the contract that defines the vendor's obligations. If you don't have a signed BAA with every vendor who touches PHI, you are already out of compliance — regardless of how secure their software is.</p>
+
+      <p>But here's the part practice managers often miss: the BAA doesn't transfer your liability. It shares it. The vendor is responsible for their piece. You remain responsible for yours. A security failure in your office is yours to own, not theirs.</p>
+
+      <h3>// What the vendor is responsible for</h3>
+
+      <ul>
+        <li>Maintaining the security of the software itself — patches, encryption, underlying infrastructure</li>
+        <li>Providing audit logging capabilities so you can track who accessed what</li>
+        <li>Notifying you of breaches that originate within their systems</li>
+        <li>Following the specific security practices they agreed to in the BAA</li>
+        <li>Implementing technical safeguards on their end of the data chain</li>
+      </ul>
+
+      <h3>// What you're still responsible for</h3>
+
+      <ul>
+        <li>Access controls: deciding who in your practice can access which records — and actually configuring those controls in the software</li>
+        <li>Staff training: ensuring your team uses the system correctly, doesn't share logins, understands the minimum necessary standard</li>
+        <li>Password policies: requiring strong, unique passwords and enabling MFA on every account that touches PHI</li>
+        <li>Audit log review: the vendor provides the logs — someone at your practice actually needs to read them periodically</li>
+        <li>Minimum necessary: restricting staff access to only the records they need for their specific role</li>
+        <li>Incident response: knowing what to do when something goes wrong, and having a documented plan</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <h2>The Misconfiguration Problem</h2>
+
+      <p>The overwhelming majority of HIPAA violations involving EHR systems aren't because the EHR itself was insecure. They happen because the practice misconfigured it, ignored the available controls, or made compromises in the name of convenience.</p>
+
+      <p>Here are patterns that show up repeatedly in OCR investigation summaries:</p>
+
+      <ul>
+        <li>Every staff member — from the front desk to the billing coordinator — has full admin access, because "it's easier"</li>
+        <li>Audit logging was disabled by an IT contractor to "improve system performance," and no one noticed for two years</li>
+        <li>The patient portal is configured to send appointment reminders to a legacy email address that an employee no longer monitors</li>
+        <li>Former employees' accounts were never deactivated after they left the practice</li>
+        <li>Session timeout is set to never, because clinicians found it annoying to log back in</li>
+      </ul>
+
+      <div class="article-callout warn">
+        <p>In 2022, a multi-site orthopedic practice received a $1.5M OCR fine after an investigation found that their EHR's audit logging had been disabled by an IT contractor for over 18 months. The EHR vendor had no liability — the software was functioning exactly as configured. The practice bore the full cost.</p>
+      </div>
+
+      <p>The vendor's software was doing its job. The practice wasn't doing theirs.</p>
+
+      <h2>The Platforms You're Probably Missing</h2>
+
+      <p>Most practices focus on their EHR when thinking about HIPAA compliance. But PHI flows through a much wider ecosystem than that — and every platform that touches it needs to be covered.</p>
+
+      <ul>
+        <li><strong>Google Workspace / Microsoft 365:</strong> Do you have a signed BAA with Google or Microsoft that covers your actual usage? Both offer healthcare-tier agreements, but the standard consumer or SMB accounts don't come with a BAA by default. Many practices assume they're covered — they're not.</li>
+        <li><strong>Cloud storage (Dropbox, Google Drive consumer):</strong> Consumer-tier cloud storage explicitly excludes HIPAA coverage. No amount of "but it's encrypted" changes that. If PHI lives in a personal Dropbox folder, you have a compliance gap.</li>
+        <li><strong>Telehealth platforms:</strong> Zoom's healthcare tier (Zoom for Healthcare) offers a BAA and is HIPAA-appropriate. Consumer Zoom does not have a BAA available and should never be used for telehealth visits involving PHI. These are not the same product.</li>
+        <li><strong>Appointment reminder and patient intake tools:</strong> Text reminder services, online intake forms, scheduling platforms — all of these can touch PHI. All of them require BAAs.</li>
+        <li><strong>Billing and clearinghouse platforms:</strong> Your billing software and any clearinghouses you use for claims submission are Business Associates and require BAAs.</li>
+      </ul>
+
+      <div class="article-callout">
+        <p>A useful exercise: list every software platform your practice uses, then ask — does PHI ever flow through this? For each "yes," confirm there's a signed BAA on file. Most practices discover at least one gap in this process.</p>
+      </div>
+
+      <h2>What to Actually Verify</h2>
+
+      <p>Compliance isn't a checkbox you check once. But there are concrete things you can do this week to close the most common gaps:</p>
+
+      <ul>
+        <li>Build a complete inventory of every vendor and platform that touches PHI in your practice</li>
+        <li>Confirm a signed BAA is on file for each — not just assumed, actually verified</li>
+        <li>Open your EHR's user management settings and audit who has admin access — remove it from anyone who doesn't need it</li>
+        <li>Verify that audit logging is enabled and review who is responsible for checking it</li>
+        <li>Confirm MFA is turned on for every account with access to PHI, especially your EHR and email</li>
+        <li>Check that former employees' accounts have been deactivated</li>
+        <li>Review your session timeout settings — convenience is not a HIPAA defense</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <p>"HIPAA compliant" on a vendor's homepage is a feature description, not a compliance certification. No vendor can certify your practice compliant — only your practices, policies, training, and configurations can do that.</p>
+
+      <p>The good news: a proper security risk assessment maps all of this out systematically. It tells you exactly where your gaps are and gives you a documented remediation plan — which itself is a HIPAA requirement under the Security Rule. Knowing where you stand is always better than assuming you're fine.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Not sure where your gaps actually are?</h2>
+    <p>A free 15-minute checkup is a low-pressure way to find out. No pitch, no obligation — just an honest look at where you stand.</p>
+    <a href="contact.html" class="btn btn-primary">Book a Free Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
