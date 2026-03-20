@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is a HIPAA Business Associate Agreement — And When Do You Need One? | LockRidge Cybersecurity</title>
+  <meta name="description" content="Every vendor that touches your patient data needs a HIPAA Business Associate Agreement. Most practices are missing several. Here's who needs one and what happens without it." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-hipaa-baa.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-hipaa-baa.html" />
+  <meta property="og:title" content="What Is a HIPAA Business Associate Agreement — And When Do You Need One?" />
+  <meta property="og:description" content="Every vendor that touches your patient data needs a HIPAA Business Associate Agreement. Most practices are missing several. Here's who needs one and what happens without it." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(99,102,241,0.08), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; }
+    .article-callout.warn p { color: var(--text-1); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+
+    .vendor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+    .vendor-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+    .vendor-col-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    .vendor-col-label.yes { color: var(--cyan); }
+    .vendor-col-label.no { color: var(--text-3); }
+    .vendor-col ul { margin: 0; }
+    .vendor-col li { font-size: 0.88rem; color: var(--text-2); margin-bottom: 8px; }
+
+    .baa-requirement { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 8px 0; display: flex; gap: 16px; align-items: flex-start; }
+    .baa-req-num { font-family: var(--font-mono); font-size: 10px; color: var(--indigo); letter-spacing: 0.1em; min-width: 52px; padding-top: 2px; }
+    .baa-req-text { font-size: 0.95rem; color: var(--text-2); line-height: 1.6; margin: 0; }
+
+    .audit-steps { counter-reset: audit-step; margin: 24px 0; }
+    .audit-step { display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-start; }
+    .audit-step-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan); min-width: 28px; padding-top: 2px; }
+    .audit-step-body { font-size: 1rem; color: var(--text-2); line-height: 1.75; }
+    .audit-step-body strong { color: var(--text-1); }
+
+    @media (max-width: 600px) { .vendor-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-compliance">HIPAA &amp; Compliance</span>
+      <span class="article-read-time">5 min read</span>
+    </div>
+    <h1>What Is a HIPAA Business Associate Agreement — And When Do You Need One?</h1>
+    <p class="article-hero-sub">Every vendor that touches your patient data needs a BAA. Most practices are missing several. Here's exactly who needs one, what it has to say, and what happens when you skip it.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>The Business Associate Agreement — BAA — is one of the most important documents in your HIPAA compliance program. It's also one of the most commonly skipped.</p>
+
+      <p>Most practice managers know they need one with their EHR vendor. Fewer know they need one with their billing company. Even fewer have thought about the document shredding service, the appointment reminder platform, the cloud backup tool, the transcription service, or the telehealth software they added during a busy season and never revisited.</p>
+
+      <p>This isn't a technicality. A missing BAA is a direct HIPAA violation — even if nothing goes wrong — and it's one of the first things an OCR auditor will ask to see.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What Is a Business Associate?</h2>
+
+      <p>HIPAA defines a Business Associate as any person or organization that creates, receives, maintains, or transmits Protected Health Information (PHI) on behalf of a Covered Entity. Your practice is the Covered Entity. Any vendor that handles patient data as part of the work they do for you is a Business Associate.</p>
+
+      <p>The key phrase is "on behalf of." They're not just touching data in passing — they're doing something with your patient data in order to help you provide care or run your practice. A Business Associate Agreement is the contract that defines what they're allowed to do with that data and what obligations they take on under HIPAA.</p>
+
+      <p>Without a BAA, you have no documented assurance that the vendor is protecting your patients' information. From a liability standpoint, that gap belongs to you.</p>
+
+      <hr class="article-divider" />
+
+      <h2>Who Needs a BAA — The Full List</h2>
+
+      <p>This is where most practices have gaps. The list is longer than it seems at first, because it includes any vendor that could encounter PHI — not just the ones whose primary function is health data.</p>
+
+      <h3>// Obviously need a BAA</h3>
+
+      <div class="vendor-grid">
+        <div class="vendor-col">
+          <div class="vendor-col-label yes">BAA required — clinical systems</div>
+          <ul>
+            <li>EHR and practice management software vendor</li>
+            <li>Medical billing company</li>
+            <li>Billing clearinghouse (Availity, Change Healthcare, etc.)</li>
+            <li>Health information exchange (HIE)</li>
+            <li>Medical transcription services</li>
+          </ul>
+        </div>
+        <div class="vendor-col">
+          <div class="vendor-col-label yes">BAA required — infrastructure</div>
+          <ul>
+            <li>Cloud backup and storage vendors</li>
+            <li>Managed IT service providers (if they access systems with PHI)</li>
+            <li>Hosted email providers — if used for patient communication</li>
+            <li>Data destruction and shredding companies</li>
+            <li>Answering services and after-hours call centers</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>// Commonly missed — also need a BAA</h3>
+
+      <p>These are the vendors that practices add over time — often without thinking through the HIPAA implications — and that OCR has explicitly identified as requiring BAAs.</p>
+
+      <ul>
+        <li><strong style="color:var(--text-1)">Google Workspace:</strong> If you use Gmail, Google Drive, or Google Meet for anything involving patient information, you need a signed BAA with Google. The free consumer versions of these products are explicitly not HIPAA-eligible. You must be on a paid Google Workspace Business or Enterprise plan with a BAA signed through Google's Admin Console.</li>
+        <li><strong style="color:var(--text-1)">Microsoft 365:</strong> Same logic — if patient-related documents are stored in OneDrive or SharePoint, or if patient communication goes through Outlook, a BAA is required. Microsoft offers this through their Microsoft Products and Services Agreement (MPSA) for qualifying plans.</li>
+        <li><strong style="color:var(--text-1)">Telehealth platforms:</strong> Standard consumer Zoom does not have a BAA and is not HIPAA-compliant. Zoom for Healthcare offers a BAA. Doxy.me, Teladoc, and similar purpose-built platforms have BAA processes. Verify before using any video platform for patient care.</li>
+        <li><strong style="color:var(--text-1)">Patient communication and reminder platforms:</strong> Klara, Luma Health, Weave, Phreesia, NexHealth — if the platform sends appointment reminders, collects intake forms, or facilitates any patient messaging, it touches PHI. A BAA is required.</li>
+        <li><strong style="color:var(--text-1)">Online intake and form tools:</strong> Jotform, Typeform, and similar tools are not HIPAA-compliant on their standard tiers. Jotform offers a HIPAA-compliant tier with a BAA; verify whether you're subscribed to it. Google Forms is not HIPAA-eligible regardless of your Google Workspace plan.</li>
+        <li><strong style="color:var(--text-1)">Your IT support provider:</strong> If your IT company ever remotely accesses a computer that has patient data on it — even to fix a printer driver — they are a Business Associate. Your IT company should have a BAA on file with every healthcare practice they support.</li>
+      </ul>
+
+      <h3>// Does NOT need a BAA</h3>
+
+      <p>Not every vendor relationship triggers the BAA requirement. HIPAA carves out certain categories.</p>
+
+      <ul>
+        <li><strong style="color:var(--text-1)">The post office and couriers:</strong> HIPAA explicitly excludes conduit providers — entities that transport PHI but don't access or use it. USPS, UPS, and FedEx fall into this category.</li>
+        <li><strong style="color:var(--text-1)">Your malpractice insurance carrier:</strong> They receive information about incidents and claims, but they're not receiving PHI on behalf of your practice in a way that triggers the BA definition.</li>
+        <li><strong style="color:var(--text-1)">Your bank or financial institution:</strong> Processing payment transactions doesn't make them a Business Associate, even if a patient's name appears on a check.</li>
+        <li><strong style="color:var(--text-1)">Your janitorial service</strong> — unless they have access to areas where physical PHI is stored, in which case the analysis becomes more nuanced.</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <h2>What a BAA Must Actually Include</h2>
+
+      <p>HIPAA specifies the minimum content of a Business Associate Agreement under 45 CFR § 164.504(e). A BAA that doesn't contain these elements isn't compliant, even if it's a signed document. When you're reviewing a vendor's form BAA, verify it covers all of these:</p>
+
+      <div class="baa-requirement">
+        <span class="baa-req-num">TERM 01</span>
+        <p class="baa-req-text">Establish the permitted and required uses and disclosures of PHI by the Business Associate — they can only use your patient data for the purposes you've agreed to</p>
+      </div>
+      <div class="baa-requirement">
+        <span class="baa-req-num">TERM 02</span>
+        <p class="baa-req-text">Require the Business Associate to implement appropriate administrative, physical, and technical safeguards to protect PHI — not just a vague promise of "security"</p>
+      </div>
+      <div class="baa-requirement">
+        <span class="baa-req-num">TERM 03</span>
+        <p class="baa-req-text">Require the Business Associate to report any security incidents and breaches to you — including the timeline for that notification</p>
+      </div>
+      <div class="baa-requirement">
+        <span class="baa-req-num">TERM 04</span>
+        <p class="baa-req-text">Require the Business Associate to return or destroy PHI at the end of the relationship — and certify that destruction</p>
+      </div>
+      <div class="baa-requirement">
+        <span class="baa-req-num">TERM 05</span>
+        <p class="baa-req-text">Require the Business Associate to ensure that any subcontractors who handle your PHI also comply with HIPAA — the chain of accountability extends downstream</p>
+      </div>
+
+      <div class="article-callout">
+        <p>One thing to note: many enterprise SaaS vendors offer "standard" BAAs that heavily favor their terms. They may limit liability, restrict your audit rights, or define breach notification timelines loosely. Read the document. If your volume of patient data is significant, it may be worth having legal counsel review BAAs before signing — particularly for EHR vendors and cloud storage providers.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>What Happens Without One</h2>
+
+      <p>Using a vendor without a signed BAA is a direct HIPAA violation — regardless of whether that vendor has ever misused your data. The violation is structural: you are operating without the contractual framework HIPAA requires.</p>
+
+      <p>The consequences play out on two tracks.</p>
+
+      <p>First, if that vendor experiences a breach involving your patients' data, your liability is compounded by the absence of a BAA. You cannot demonstrate that you exercised due diligence in vetting and contracting with your Business Associates. OCR will treat the missing BAA as evidence of a systemic compliance failure — and will look for additional failures while they're investigating.</p>
+
+      <p>Second, OCR routinely requests a list of Business Associates and their signed BAAs during audits and investigations — even when the audit was triggered by something unrelated. If you can't produce them, you've just created a new problem on top of whatever originally drew OCR's attention.</p>
+
+      <p>Fines for missing Business Associate Agreements range from $100 to $50,000 per violation, with an annual cap of $1.9 million per violation category. Each missing BAA is typically treated as a separate violation.</p>
+
+      <div class="article-callout warn">
+        <p>In 2019, a dental practice was fined $10,000 and required to implement a corrective action plan after OCR found they were using a web-based scheduling platform to allow patients to book appointments — without a signed BAA in place. The platform stored patient names, contact information, and appointment types. No breach had occurred. The violation was the missing agreement itself.</p>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>How to Audit Your BAAs Right Now</h2>
+
+      <p>The process is straightforward. It just requires sitting down and going through it methodically.</p>
+
+      <div class="audit-steps">
+        <div class="audit-step">
+          <span class="audit-step-num">01</span>
+          <div class="audit-step-body"><strong>Make a complete list of every vendor your practice uses</strong> — clinical systems, IT vendors, communication tools, cloud storage, scheduling, billing, everything. Include services that were set up by former employees or that are billed to a personal credit card rather than a practice account.</div>
+        </div>
+        <div class="audit-step">
+          <span class="audit-step-num">02</span>
+          <div class="audit-step-body"><strong>For each vendor, ask: does this service ever come into contact with patient data in any form?</strong> Patient names, contact information, appointment details, diagnoses, billing codes — any of these constitute PHI in combination with an identifier. When in doubt, assume yes.</div>
+        </div>
+        <div class="audit-step">
+          <span class="audit-step-num">03</span>
+          <div class="audit-step-body"><strong>For every vendor where the answer is yes: do you have a signed BAA on file?</strong> Check your compliance folder, your email inbox for agreements you may have signed digitally, and your contract files.</div>
+        </div>
+        <div class="audit-step">
+          <span class="audit-step-num">04</span>
+          <div class="audit-step-body"><strong>For missing BAAs: most enterprise vendors have them available.</strong> Google Workspace BAAs are signed through the Admin Console under Account settings. Microsoft's are available through the service trust portal. Most healthcare-specific software vendors have them in their legal or compliance section. If a vendor can't produce a BAA, that's information too — it may mean they're not actually HIPAA-eligible.</div>
+        </div>
+        <div class="audit-step">
+          <span class="audit-step-num">05</span>
+          <div class="audit-step-body"><strong>Keep all signed BAAs in a single, accessible compliance folder</strong> — a shared drive location, not someone's personal computer. OCR will ask for them on a tight timeline during an investigation. You want to be able to produce them in hours, not days.</div>
+        </div>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>The Bigger Picture</h2>
+
+      <p>Most missing BAAs aren't the result of negligence. They're the result of not knowing you needed one. A practice adds a new scheduling tool, a new communication platform, a new cloud storage solution — and the BAA question never comes up because no one's job is to ask it.</p>
+
+      <p>The fix is to make BAAs part of the vendor evaluation process, not an afterthought. Before any new software or service goes live in your practice, one question should be on the checklist: "Does this vendor have a BAA, and have we signed it?"</p>
+
+      <p>A security risk assessment maps every vendor relationship your practice has and flags the missing agreements. It's a more systematic approach than trying to reconstruct the list from memory — and it's the documented basis OCR expects to see when they ask how you manage your Business Associates.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Not sure which of your vendors need a BAA?</h2>
+    <p>A 15-minute checkup can walk through your vendor relationships and identify the compliance gaps before an auditor does.</p>
+    <a href="contact.html" class="btn btn-primary">Book Your Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

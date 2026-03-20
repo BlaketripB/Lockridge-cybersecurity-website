@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The HIPAA Security Risk Assessment: What It Is, What It Isn't, and Why Yours Is Probably Wrong | LockRidge Cybersecurity</title>
+  <meta name="description" content="A HIPAA Security Risk Assessment is the most commonly cited violation in OCR audits — and the most misunderstood. Most assessments practices have on file wouldn't survive scrutiny." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-hipaa-risk-assessment.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-hipaa-risk-assessment.html" />
+  <meta property="og:title" content="The HIPAA Security Risk Assessment: What It Is, What It Isn't, and Why Yours Is Probably Wrong" />
+  <meta property="og:description" content="A HIPAA Security Risk Assessment is the most commonly cited violation in OCR audits — and the most misunderstood. Most assessments practices have on file wouldn't survive scrutiny." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(245,158,11,0.06), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-incident { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-compliance { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); }
+    .tag-vendor { color: #6366f1; border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .tag-access { color: #00d4ff; border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; border-color: rgba(239,68,68,0.25); }
+    .article-callout.amber { border-left-color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+    .reg-cite { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-3); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; display: inline-block; margin: 0 2px; }
+    .checklist-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 24px 0 32px; }
+    .checklist-block h3 { margin-top: 0; margin-bottom: 16px; }
+    .checklist-block ul { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">← BACK TO RESOURCES</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-compliance">HIPAA &amp; Compliance</span>
+      <span class="article-read-time">4 min read</span>
+    </div>
+    <h1>The HIPAA Security Risk Assessment: What It Is, What It Isn't, and Why Yours Is Probably Wrong</h1>
+    <p class="article-hero-sub">A risk assessment is the single most commonly cited HIPAA violation in OCR audits. It's also the most commonly misunderstood. Most assessments practices have on file wouldn't support audit readiness.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>Every healthcare practice knows they're supposed to have a HIPAA Security Risk Assessment. Most believe they do. The problem is that what most practices call a "risk assessment" doesn't come close to what HIPAA actually requires.</p>
+
+      <p>A risk assessment isn't a vendor survey. It isn't a checklist you downloaded from a Google search. It isn't the SRA Tool from HHS.gov that someone filled out once in 2019 and filed away. It's a living process — and it's the legal and operational foundation of your entire HIPAA Security Rule compliance program.</p>
+
+      <p>Getting this wrong isn't a technicality. It's the most common reason practices end up in OCR resolution agreements, and it's almost always cited alongside whatever the primary incident was.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What HIPAA Actually Requires</h2>
+
+      <p>The requirement lives at <span class="reg-cite">45 CFR § 164.308(a)(1)</span> — the Administrative Safeguards section of the HIPAA Security Rule. It requires covered entities and business associates to:</p>
+
+      <ul>
+        <li>Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of all ePHI the organization creates, receives, maintains, or transmits</li>
+        <li>Implement security measures sufficient to reduce identified risks and vulnerabilities to a reasonable and appropriate level</li>
+        <li>Document the assessment and the risk management decisions that follow from it</li>
+        <li>Review and update the assessment periodically and in response to environmental or operational changes</li>
+      </ul>
+
+      <p>Three words in that language matter more than people realize: <strong style="color:var(--text-1)">"all ePHI."</strong> Not just your EHR. Not just the systems managed by your IT vendor. Every system, every device, every workflow that creates, receives, maintains, or transmits electronic protected health information.</p>
+
+      <p>That means your email. Your cloud storage. Your patient texting platform. Your billing software. Your offsite backup drives. The laptop your billing coordinator takes home. The fax server. All of it.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What Most Practices Actually Have</h2>
+
+      <p>When we ask a practice to show us their risk assessment, the responses tend to fall into a few categories — none of which survive scrutiny:</p>
+
+      <ul>
+        <li>A PDF they completed once, several years ago, that has never been updated since a new EHR, new staff, or a new cloud system was added</li>
+        <li>A "HIPAA compliant" certification or checklist from their EHR vendor — which covers only that vendor's system, not the practice's overall environment</li>
+        <li>A Word document from a compliance consultant that was generated as a deliverable, signed, and never looked at again</li>
+        <li>An honest admission that they're not actually sure whether they have one</li>
+      </ul>
+
+      <p>All of these represent the same underlying problem: the risk assessment was treated as a one-time compliance event rather than an ongoing process. HIPAA doesn't allow for that, and OCR's enforcement history makes clear they know the difference.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What a Real Risk Assessment Actually Includes</h2>
+
+      <p>A proper HIPAA Security Risk Assessment has four substantive components. Each one builds on the last, and all four need to be documented.</p>
+
+      <div class="checklist-block">
+        <h3>// 01 — Inventory of ePHI</h3>
+        <p style="font-size:0.97rem;color:var(--text-2);margin-bottom:12px;">The foundation. You cannot assess risk to data you haven't located yet.</p>
+        <ul>
+          <li>Where does your practice create, receive, maintain, or transmit ePHI?</li>
+          <li>EHR system and all integrated modules (scheduling, lab results, patient portal)</li>
+          <li>Email — especially if patients communicate clinical information via email</li>
+          <li>Billing platform (clearinghouse connections, remittance data)</li>
+          <li>Patient communication tools (text platforms, appointment reminders)</li>
+          <li>Cloud storage (Google Drive, Dropbox, OneDrive) used by any staff member</li>
+          <li>Portable and mobile devices (laptops, tablets, phones)</li>
+          <li>Printers, scanners, fax servers — these hold data in memory and on hard drives</li>
+          <li>Backup media — local drives, tapes, offsite backups</li>
+        </ul>
+      </div>
+
+      <div class="checklist-block">
+        <h3>// 02 — Threat and Vulnerability Identification</h3>
+        <p style="font-size:0.97rem;color:var(--text-2);margin-bottom:12px;">For each system holding ePHI: what could go wrong, and what weaknesses exist that could allow it?</p>
+        <ul>
+          <li><strong style="color:var(--text-1)">Threats:</strong> ransomware, phishing, insider misuse, lost or stolen devices, unauthorized remote access, vendor breach, natural disaster</li>
+          <li><strong style="color:var(--text-1)">Vulnerabilities:</strong> weak or shared passwords, no multi-factor authentication, unpatched operating systems or software, unencrypted portable devices, overly broad access permissions, no audit logging, staff who haven't received security training</li>
+          <li>Every threat paired with a relevant vulnerability is a risk item that needs to be documented and addressed</li>
+        </ul>
+      </div>
+
+      <div class="checklist-block">
+        <h3>// 03 — Likelihood and Impact Analysis</h3>
+        <p style="font-size:0.97rem;color:var(--text-2);margin-bottom:12px;">Not all risks are equal. This step produces a documented risk rating for each item.</p>
+        <ul>
+          <li>For each threat/vulnerability pair: how likely is this to occur given your current environment?</li>
+          <li>If it did occur: what would the impact be on the confidentiality, integrity, or availability of ePHI?</li>
+          <li>Likelihood × Impact = Risk Level. Document this for each item. OCR wants to see that you thought through the analysis, not just that you listed threats.</li>
+        </ul>
+      </div>
+
+      <div class="checklist-block">
+        <h3>// 04 — Risk Management Plan</h3>
+        <p style="font-size:0.97rem;color:var(--text-2);margin-bottom:12px;">This is what OCR actually wants to see when they show up.</p>
+        <ul>
+          <li>For each identified risk: what safeguard are you implementing to reduce it?</li>
+          <li>Document the decision — even if you decide to accept a risk rather than mitigate it, that decision needs to be documented and justified</li>
+          <li>Assign a responsible person and a timeline for each open item</li>
+          <li>Track completion. Evidence that you identified risks and followed through is the difference between a compliance program and a compliance document</li>
+        </ul>
+      </div>
+
+      <hr class="article-divider" />
+
+      <h2>The "Annual Update" Requirement — and What Triggers One Early</h2>
+
+      <p>HIPAA doesn't use the word "annually." The requirement is "periodically" and "in response to environmental or operational changes." In practice, most compliance professionals recommend a formal review at least once per year — but certain changes require a reassessment before that clock runs out.</p>
+
+      <p>Any of these should trigger a risk assessment update:</p>
+
+      <ul>
+        <li>New software or systems added to the environment (new EHR module, new patient communication platform)</li>
+        <li>New devices — especially portable devices, workstations added for new staff, or bring-your-own-device policies</li>
+        <li>Staff changes — new employees with ePHI access, departing employees, role changes that affect access levels</li>
+        <li>New workflows (telehealth, remote work, outsourced billing)</li>
+        <li>A security incident or near-miss — even one that didn't result in a breach</li>
+        <li>A change in the physical environment (office move, new workstations)</li>
+        <li>A new business associate relationship that involves ePHI access</li>
+      </ul>
+
+      <p>That's a long list. For most practices, it means the risk assessment should be touched more than once a year — even if a full rewrite isn't required every time.</p>
+
+      <hr class="article-divider" />
+
+      <h2>What OCR Looks For in an Audit</h2>
+
+      <p>OCR's Phase 2 audit protocol and enforcement actions provide a consistent picture of what investigators actually examine:</p>
+
+      <ul>
+        <li>Did the organization conduct a risk assessment?</li>
+        <li>Does it cover all ePHI — not just the primary EHR system?</li>
+        <li>Is it documented in a form that demonstrates actual analysis, not just a checklist?</li>
+        <li>Did the organization implement security measures based on what the assessment found?</li>
+        <li>Is there evidence of periodic review and updates?</li>
+        <li>Does the risk management plan show follow-through — or does it show a list of open items that were never acted on?</li>
+      </ul>
+
+      <div class="article-callout amber">
+        <p>In OCR's 2023 enforcement actions, 73% of resolution agreements cited a deficient or missing risk analysis as a key violation — even in cases where the primary incident was something else entirely. A breach surfaces the missing assessment. The assessment becomes its own violation.</p>
+      </div>
+
+      <p>This is the pattern that catches practices off guard. They experience a phishing incident, a lost laptop, or a ransomware attack. OCR opens an investigation into the breach. During the investigation, they ask for the risk assessment. The practice produces something that doesn't meet the standard. Now there are two violations instead of one — and the risk assessment deficiency often carries its own penalty.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Right Way to Think About It</h2>
+
+      <p>A HIPAA Security Risk Assessment is not a compliance checkbox to be completed and filed. It's a structured process for actually finding out where your practice is vulnerable — and documenting what you're doing about it.</p>
+
+      <p>Practices that fare best in OCR investigations share a common profile: they have documented evidence that they looked for risks, made decisions about them, and implemented safeguards over time. They don't have to have been perfect. OCR has consistently shown willingness to work with organizations that demonstrate a genuine, documented effort at compliance — and much less willingness to work with organizations that have a filing cabinet full of paper that was never meant to reflect actual practice.</p>
+
+      <p>If OCR ever does open an investigation, the corrective action plan almost invariably starts with: conduct a proper risk assessment. That's the reset point. Starting from that point before an investigation is a significantly better position to be in.</p>
+
+      <hr class="article-divider" />
+
+      <p>If your risk assessment is a PDF you haven't opened in two years, or if you're not entirely sure you have one at all — that's the first conversation worth having. A proper assessment doesn't have to be complicated or expensive. But it does have to be real: current, complete, and connected to actual decisions about your actual systems.</p>
+
+      <p>That's the standard HIPAA sets, and it's the standard OCR enforces.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Not sure if your risk assessment would hold up?</h2>
+    <p>We can help you understand what a proper assessment looks like for your practice — and where the gaps are. Free 15 minutes, no obligation.</p>
+    <a href="contact.html" class="btn btn-primary">Book a Free 15-Min Checkup</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

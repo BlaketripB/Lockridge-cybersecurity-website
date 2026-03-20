@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ransomware in Dentistry: Why Small Practices Are Target #1 | LockRidge Cybersecurity</title>
+  <meta name="description" content="Ransomware attackers stopped targeting hospitals. Now they go after small dental practices — averaging $85,000 per attack. Here's why, and what you can do about it." />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
+  <link rel="canonical" href="https://lockridgecyber.com/article-ransomware-dentistry.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lockridgecyber.com/article-ransomware-dentistry.html" />
+  <meta property="og:title" content="Ransomware in Dentistry: Why Small Practices Are Target #1" />
+  <meta property="og:description" content="Ransomware attackers stopped targeting hospitals. Now they go after small dental practices — averaging $85,000 per attack. Here's why, and what you can do about it." />
+  <meta property="og:site_name" content="LockRidge Cybersecurity" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .article-hero { padding: 120px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(239,68,68,0.06), transparent 70%); pointer-events: none; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-decoration: none; letter-spacing: 0.08em; margin-bottom: 32px; transition: color 0.2s; }
+    .article-back:hover { color: var(--cyan); }
+    .article-hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid; }
+    .tag-ransomware { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .article-read-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-hero-sub { font-size: 1.1rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    .article-body { padding: 80px 0 100px; background: var(--bg); }
+    .article-content { max-width: 720px; margin: 0 auto; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-1); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--cyan); margin: 32px 0 12px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .article-content p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+    .article-content li { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .article-content li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; }
+    .article-callout { background: var(--surface); border: 1px solid var(--border-glow); border-left: 3px solid var(--cyan); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+    .article-callout p { margin: 0; color: var(--text-1); font-size: 0.97rem; }
+    .article-callout.warn { border-left-color: #ef4444; border-color: rgba(239,68,68,0.2); }
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .article-cta { background: var(--bg-2); border-top: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .article-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { color: var(--text-2); margin-bottom: 32px; font-size: 1rem; }
+    .cost-breakdown { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 32px 0; }
+    .cost-breakdown-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 20px; }
+    .cost-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+    .cost-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cost-item-label { color: var(--text-2); }
+    .cost-item-value { font-family: var(--font-mono); font-size: 0.9rem; color: var(--red); }
+    .cost-item-value.total { color: var(--text-1); font-size: 1rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-img" viewBox="0 0 180 168" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="ng" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="ns" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#6366f1"/></linearGradient><linearGradient id="nbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0e0e1c"/><stop offset="100%" stop-color="#07070e"/></linearGradient></defs><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="rgba(0,212,255,0.08)" filter="url(#ng)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" fill="url(#nbg)"/><path d="M72 8 L124 30 L124 92 Q124 142 72 158 Q20 142 20 92 L20 30 Z" stroke="#00d4ff" stroke-width="1.8" filter="url(#ng)"/><path d="M72 19 L113 38 L113 92 Q113 134 72 148 Q31 134 31 92 L31 38 Z" stroke="rgba(99,102,241,0.35)" stroke-width="1"/><line x1="35" y1="74" x2="109" y2="74" stroke="rgba(0,212,255,0.12)" stroke-width="0.75"/><rect x="31" y="38" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.5"/><rect x="109" y="38" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.5"/><path d="M57 98 L57 78 Q57 61 72 61 Q87 61 87 78 L87 98" stroke="url(#nlg)" stroke-width="8.5" stroke-linecap="round" filter="url(#ns)"/><rect x="49" y="96" width="46" height="40" rx="5" fill="url(#nlg)" filter="url(#ns)"/><circle cx="72" cy="111" r="6.5" fill="#07070e"/><rect x="69" y="111" width="6" height="13" rx="1.5" fill="#07070e"/><rect x="128" y="46" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.95" filter="url(#ns)"/><rect x="128" y="60" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.88" filter="url(#ns)"/><rect x="128" y="74" width="10" height="10" rx="1.5" fill="#6366f1" opacity="0.82" filter="url(#ns)"/><rect x="128" y="88" width="10" height="10" rx="1.5" fill="#00d4ff" opacity="0.75" filter="url(#ns)"/><rect x="142" y="42" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.6"/><rect x="142" y="54" width="8" height="8" rx="1" fill="#6366f1" opacity="0.55"/><rect x="142" y="66" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.5"/><rect x="142" y="78" width="8" height="8" rx="1" fill="#6366f1" opacity="0.45"/><rect x="142" y="90" width="8" height="8" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="44" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.38"/><rect x="154" y="56" width="6" height="6" rx="1" fill="#6366f1" opacity="0.3"/><rect x="154" y="68" width="6" height="6" rx="1" fill="#00d4ff" opacity="0.28"/><rect x="154" y="80" width="6" height="6" rx="1" fill="#6366f1" opacity="0.24"/><rect x="163" y="48" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.22"/><rect x="163" y="60" width="4" height="4" rx="0.5" fill="#6366f1" opacity="0.18"/><rect x="163" y="72" width="4" height="4" rx="0.5" fill="#00d4ff" opacity="0.16"/><line x1="124" y1="51" x2="128" y2="51" stroke="#00d4ff" stroke-width="1.2" opacity="0.55"/><line x1="124" y1="65" x2="128" y2="65" stroke="#00d4ff" stroke-width="1.2" opacity="0.5"/><line x1="124" y1="79" x2="128" y2="79" stroke="#6366f1" stroke-width="1.2" opacity="0.45"/><line x1="124" y1="93" x2="128" y2="93" stroke="#00d4ff" stroke-width="1.2" opacity="0.4"/></svg>
+      <span><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="healthcare.html">Healthcare Focus</a></li>
+      <li><a href="resources.html" style="color:var(--text-1)">Resources</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Checkup</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Healthcare Focus</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Free 15-Min Checkup</a></li>
+  </ul>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="container">
+    <a href="resources.html" class="article-back">&#8592; Back to Resources</a>
+    <div class="article-hero-meta">
+      <span class="article-tag tag-ransomware">Ransomware</span>
+      <span class="article-read-time">7 min read</span>
+    </div>
+    <h1>Ransomware in Dentistry: Why Small Practices Are Target&nbsp;#1</h1>
+    <p class="article-hero-sub">Attackers stopped targeting hospitals years ago. The security is too good. Now they go after 2-chair dental offices — and they're averaging $85,000 per successful attack.</p>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>There's a common assumption in small healthcare: ransomware hits big targets. Hospitals. Insurance companies. Major health systems. The kind of places with IT departments and dedicated security budgets.</p>
+
+      <p>That assumption is wrong, and it's costing small practices everything.</p>
+
+      <p>The shift away from large hospital targets happened gradually over the past several years. Health systems invested heavily in security infrastructure — 24/7 monitoring, incident response teams, network segmentation. Attacking them became expensive and unpredictable. So ransomware groups, which operate like businesses, followed the money somewhere easier.</p>
+
+      <p>They found it in small dental offices.</p>
+
+      <h2>Why Attackers Deliberately Target Small Practices</h2>
+
+      <p>Ransomware groups optimize for return on investment. A successful attack requires breaching a target, encrypting their data, and collecting payment. Every stage of that process is cheaper and more reliable against a small dental practice than against a hospital.</p>
+
+      <ul>
+        <li>Large health systems have dedicated security teams, 24/7 network monitoring, and documented incident response plans. Small practices typically have a part-time IT person — if they have one at all.</li>
+        <li>Small practices run outdated software. Dental imaging systems are notorious for this — many practices are running X-ray software from 2012 or earlier, on Windows versions that haven't received security patches in years.</li>
+        <li>The data is genuinely valuable. A dental practice holds names, dates of birth, Social Security numbers in some cases, insurance information, and detailed health records. That's a complete identity theft package.</li>
+        <li>Small practices absolutely cannot afford extended downtime. A hospital can operate in degraded mode. A 3-chair dental office cannot see patients without their scheduling system, x-rays, and treatment records.</li>
+        <li>They usually have cyber insurance, which means there's a known, reliable payment mechanism.</li>
+      </ul>
+
+      <p>The attackers' math is straightforward: soft target, real assets, motivated to pay. Small dental and medical practices hit all three criteria.</p>
+
+      <h2>How Ransomware Actually Gets In</h2>
+
+      <p>Understanding the attack vectors helps demystify what feels like an unknowable threat. Ransomware doesn't appear from nowhere — it enters through specific, predictable paths.</p>
+
+      <h3>// Phishing email</h3>
+
+      <p>This is the most common vector by a significant margin. A staff member receives an email that looks legitimate — a patient inquiry, an insurance notification, a vendor invoice — and opens an attachment or clicks a link. A small piece of malware installs silently in the background, giving attackers a foothold. From there, they work quietly to expand their access before triggering the ransomware.</p>
+
+      <h3>// Exposed Remote Desktop Protocol (RDP)</h3>
+
+      <p>Many dental practices have RDP enabled so their IT provider or software vendors can access systems remotely. When RDP is exposed directly to the internet without additional protections, it's visible to every automated scanner running on the internet. Attackers find open RDP ports, attempt common username and password combinations, and often succeed because the credentials are weak or default. This is one of the most exploited vectors in small healthcare.</p>
+
+      <h3>// Unpatched software vulnerabilities</h3>
+
+      <p>Dental imaging software — Dexis, Carestream, Planmeca, and others — runs on Windows and has its own vulnerability history. When patches aren't applied, known exploits remain available to anyone who wants to use them. The same applies to unpatched Windows itself, outdated versions of common software, and any internet-facing applications.</p>
+
+      <h3>// The infection timeline</h3>
+
+      <p>This part surprises most people. Ransomware doesn't encrypt your files the moment it enters your network. Modern ransomware sits dormant for days or weeks — sometimes longer. During that time, it's doing reconnaissance: mapping your network, identifying your backup systems, and spreading laterally to other machines. When the attackers are ready, they activate it all at once. By then, the infection has often reached your backups too.</p>
+
+      <p>Then the ransom note appears — typically demanding $50,000 to $200,000 in cryptocurrency, with a 72-hour countdown. Pay within the window or the price doubles. In many attacks today, the threat is compounded: pay or we publish your patient data publicly.</p>
+
+      <h2>The Real Cost (It's More Than the Ransom)</h2>
+
+      <p>The ransom demand gets all the attention, but it's often not even the largest cost in a successful ransomware attack. The total impact typically runs three to five times the ransom itself.</p>
+
+      <div class="cost-breakdown">
+        <div class="cost-breakdown-title">// Typical cost breakdown — small dental practice</div>
+        <div class="cost-item">
+          <span class="cost-item-label">Ransom payment (average)</span>
+          <span class="cost-item-value">$85,000</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Practice downtime (2–4 weeks, no revenue)</span>
+          <span class="cost-item-value">$40,000–$120,000</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Forensics and incident response firm</span>
+          <span class="cost-item-value">$15,000–$50,000</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Recovery labor (100–300 hours)</span>
+          <span class="cost-item-value">$10,000–$30,000</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Patient breach notification (if PHI exfiltrated)</span>
+          <span class="cost-item-value">$5,000–$25,000</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">HIPAA investigation and potential fines</span>
+          <span class="cost-item-value">varies</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Reputation and patient loss</span>
+          <span class="cost-item-value">ongoing</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-item-label">Total realistic range</span>
+          <span class="cost-item-value total">$200,000–$400,000+</span>
+        </div>
+      </div>
+
+      <div class="article-callout warn">
+        <p>One Utah dental practice paid $65,000 in ransom in 2022 — and still lost three weeks of patient data that hadn't been properly isolated in backups. The ransomware had silently encrypted the backup drive weeks before the attack was triggered. Total cost including downtime exceeded $400,000. The practice nearly closed.</p>
+      </div>
+
+      <p>Paying the ransom doesn't guarantee recovery either. Decryption keys provided by attackers are frequently incomplete, corrupted, or slow to the point of being useless. Even with a working key, rebuilding a practice's systems from encrypted files typically takes weeks.</p>
+
+      <hr class="article-divider" />
+
+      <h2>The Three Things That Actually Protect You</h2>
+
+      <p>The security industry has a tendency to make defense sound complicated. For a small dental practice, it isn't. There are three controls that, implemented correctly, will either prevent an attack entirely or allow you to recover without paying. Everything else is secondary to these.</p>
+
+      <h3>// 1. Offsite, encrypted, tested backups</h3>
+
+      <p>This is the single most important defense against ransomware. If you have clean, recent backups that ransomware hasn't reached, you can recover without paying anything. The ransom becomes irrelevant.</p>
+
+      <p>Every word in "offsite, encrypted, tested" matters:</p>
+
+      <ul>
+        <li><strong>Offsite:</strong> A backup drive plugged into your server is not a backup — it will be encrypted alongside everything else. Backups must be isolated from your network, either to a separate cloud service or to removable media that is physically disconnected after each backup.</li>
+        <li><strong>Encrypted:</strong> Backup files containing patient records are PHI. They need to be encrypted at rest.</li>
+        <li><strong>Tested:</strong> A backup you've never attempted to restore from is not a backup — it's an assumption. Test your restore process at least quarterly. You should know exactly how long a full restoration takes before you're under pressure to do it.</li>
+      </ul>
+
+      <p>The industry standard framework is 3-2-1: three copies of your data, on two different media types, with one copy stored offsite. For a dental practice, this typically looks like: local backup, cloud backup, and periodic offline cold storage.</p>
+
+      <h3>// 2. Endpoint detection and response (EDR)</h3>
+
+      <p>Traditional antivirus software detects threats by comparing files against a database of known malware signatures. Modern ransomware evades this easily — new variants are released constantly, and polymorphic ransomware changes its signature with each infection.</p>
+
+      <p>EDR software takes a different approach: it monitors the behavior of processes running on your machines rather than comparing signatures. When a process starts attempting to encrypt large numbers of files rapidly, EDR recognizes that behavioral pattern and can halt the process — often mid-encryption, before the attack completes. For a practice with 5–20 endpoints, EDR is not expensive. It's one of the better per-dollar investments in small practice security.</p>
+
+      <h3>// 3. Staff training that actually sticks</h3>
+
+      <p>Your front desk staff opening email at 8am is your most important security control — not your firewall, not your antivirus. The majority of ransomware attacks begin with a human clicking something they shouldn't have.</p>
+
+      <p>Generic "don't click links" training doesn't work. What does work:</p>
+
+      <ul>
+        <li><strong>Phishing simulation:</strong> Send your own fake phishing emails to staff using a simulation platform. See who clicks. Train the people who do — immediately, while the experience is fresh. Repeat quarterly. Click rates drop dramatically within a few rounds.</li>
+        <li><strong>Verification habit:</strong> Any unexpected attachment or request — especially anything involving payments, credentials, or patient data — gets verified by calling the sender directly, not by replying to the email.</li>
+        <li><strong>Report without fear:</strong> Staff who think they've clicked something bad need to report it immediately. A five-minute response window can prevent an attack from spreading. Create a culture where "I clicked something suspicious" is treated as good behavior, not a disciplinable offense.</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <h2>What To Do If It Happens</h2>
+
+      <p>If you arrive at the office and see ransom notes on screens, the next hour matters enormously. Here's the right sequence:</p>
+
+      <ul>
+        <li><strong>Isolate immediately.</strong> Unplug affected machines from the network. Turn off Wi-Fi on devices you can. The goal is to stop lateral spread — ransomware actively tries to reach every machine it can. Disconnecting from the network contains the damage.</li>
+        <li><strong>Do not attempt to decrypt yourself.</strong> DIY decryption attempts frequently destroy forensic evidence and make professional recovery harder or impossible. Don't run decryption tools you find online.</li>
+        <li><strong>Call your IT provider first.</strong> They need to assess scope and begin the incident response process. If you don't have a provider, call a healthcare-focused incident response firm immediately.</li>
+        <li><strong>Call your cyber insurance carrier.</strong> Most healthcare cyber insurance policies cover ransomware response, including forensics, recovery, and sometimes ransom payment. Your carrier has a 24/7 hotline for exactly this situation.</li>
+        <li><strong>Contact the FBI.</strong> This is not optional and it's not just for large organizations. The FBI's Cyber Division tracks ransomware groups and sometimes has decryption keys available from previous law enforcement operations. Reporting costs you nothing. There is occasionally a key available that makes paying unnecessary.</li>
+        <li><strong>Do not pay immediately.</strong> Get a full assessment of what was encrypted and whether your backups are intact before making any payment decisions. Sometimes recovery is possible without payment. Sometimes paying gets you nothing back anyway.</li>
+      </ul>
+
+      <hr class="article-divider" />
+
+      <p>Dental practices are targeted specifically because most don't have basic protections in place. Attackers know this — they know the software that dental practices run, they know the common configurations, and they have automated tools that scan for known vulnerabilities at scale.</p>
+
+      <p>The good news is that the fixes aren't expensive or technically complex. Isolated backups, EDR, and real staff training address the vast majority of ransomware risk for a small practice. The challenge is that someone has to actually implement and maintain them.</p>
+
+      <p>A 15-minute checkup is a good place to find out where you actually stand — whether your backups are configured correctly, whether you have any exposed RDP ports, and what your current risk profile looks like.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Find out where your practice stands before an attacker does.</h2>
+    <p>A free 15-minute checkup takes no preparation on your part — and can tell you whether the three protections above are actually in place at your practice.</p>
+    <a href="contact.html" class="btn btn-primary">Book a Free Checkup</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
+        <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+        <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="healthcare.html">Healthcare Focus</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="managed-it-services.html">Managed IT Services</a></li>
+          <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+          <li><a href="network-support.html">Network Support</a></li>
+          <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+          <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>The Easy Ask</h4>
+        <p>Free 15-minute checkup. No pitch.</p>
+        <a href="contact.html" class="footer-cta-btn">Book a checkup →</a>
+        <div class="footer-contact-info"><a href="mailto:Contact@Lockridgecyber.com">Contact@Lockridgecyber.com</a></div>
+        <div class="footer-contact-info" style="margin-top:6px;"><a href="tel:3859858976">385-985-8976</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Lockridge Cybersecurity LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

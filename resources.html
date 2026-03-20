@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT & Cybersecurity Resources for Utah Businesses | LockRidge Cybersecurity</title>
-  <meta name="description" content="Free cybersecurity and IT resources for small businesses and healthcare practices in Utah County. Plain-language guides on HIPAA, ransomware, network security, and more." />
+  <title>Healthcare Cybersecurity Resources | LockRidge Cybersecurity in Utah County</title>
+  <meta name="description" content="Free cybersecurity and IT resources for healthcare practices and small businesses in Utah County. No jargon. Written for practice managers and business owners." />
   <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah County, Utah" />
   <link rel="canonical" href="https://lockridgecyber.com/resources.html" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <!-- Open Graph -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="IT & Cybersecurity Resources for Utah Businesses | LockRidge Cybersecurity" />
-  <meta property="og:description" content="Free cybersecurity and IT resources for small businesses and healthcare practices in Utah County. Plain-language guides on HIPAA, ransomware, network security, and more." />
   <meta property="og:url" content="https://lockridgecyber.com/resources.html" />
+  <meta property="og:title" content="Healthcare Cybersecurity Resources | LockRidge Cybersecurity in Utah County" />
+  <meta property="og:description" content="Free cybersecurity and IT resources for healthcare practices and small businesses in Utah County. No jargon. Written for practice managers and business owners." />
   <meta property="og:site_name" content="LockRidge Cybersecurity" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,6 +38,8 @@
       display: flex;
       flex-direction: column;
       cursor: none;
+      text-decoration: none;
+      color: inherit;
     }
     .article-card:hover {
       border-color: var(--border-glow);
@@ -249,7 +251,7 @@
       <div class="articles-grid">
 
         <!-- Featured Article -->
-        <div class="article-card article-featured reveal" style="--card-delay:0s">
+        <a class="article-card article-featured reveal" href="article-72-hours-after-breach.html" style="--card-delay:0s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-incident">Incident Response</span>
@@ -258,12 +260,12 @@
             <h3>What Happens in the First 72 Hours After a Healthcare Breach</h3>
           </div>
           <div class="article-card-body">
-            <p>The clock starts the moment you discover a breach. HIPAA's Breach Notification Rule (45 CFR § 164.412) requires notification without unreasonable delay — and no later than 60 calendar days from discovery for breaches affecting 500 or more individuals. But OCR has penalized practices for waiting even when they stayed within that window. The critical decisions happen in the first 72 hours. Most practices either act too slowly, or act without a plan.</p>
+            <p>The clock starts the moment you discover a breach — and HIPAA gives you exactly 60 days to notify HHS and affected patients. But the critical decisions happen in the first 72 hours. Most practices either act too slowly, or act without a plan. Here's exactly what should happen, hour by hour, and why each step matters legally and operationally.</p>
             <span class="article-read-link">Read the full guide →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.1s">
+        <a class="article-card reveal" href="article-hipaa-front-desk-workflow.html" style="--card-delay:0.1s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-compliance">HIPAA & Compliance</span>
@@ -275,9 +277,9 @@
             <p>Three common front-desk habits that violate HIPAA every day — and most practices don't know it. One of them probably happens at your check-in window right now.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.2s">
+        <a class="article-card reveal" href="article-ehr-vendor-hipaa-claim.html" style="--card-delay:0.2s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-vendor">Vendor Risk</span>
@@ -289,9 +291,9 @@
             <p>Software can be HIPAA-ready. That doesn't mean your practice is HIPAA-compliant. The distinction is the difference between a tool and a policy — and OCR doesn't care which one you misunderstood.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.3s">
+        <a class="article-card reveal" href="article-ransomware-dentistry.html" style="--card-delay:0.3s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-ransomware">Ransomware</span>
@@ -300,12 +302,12 @@
             <h3>Ransomware in Dentistry: Why Small Practices Are Target #1</h3>
           </div>
           <div class="article-card-body">
-            <p>Attackers have shifted focus toward smaller, under-defended practices. Healthcare ransomware recovery costs averaged $2.57 million in 2024 — and two-thirds of healthcare organizations were hit that year, a four-year high (Sophos, State of Ransomware in Healthcare 2024). Small dental offices are high-value targets with low defenses. Here's why, and exactly what you can do about it.</p>
+            <p>Attackers stopped targeting hospitals years ago. The security is too good. Now they go after 2-chair dental offices — and they're averaging $85,000 per successful attack. Here's why, and exactly what you can do.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.4s">
+        <a class="article-card reveal" href="article-former-employee-access.html" style="--card-delay:0.4s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-access">Access Control</span>
@@ -314,12 +316,12 @@
             <h3>Can Your Former Employee Still Log Into Your Systems?</h3>
           </div>
           <div class="article-card-body">
-            <p>Insider threats — including former staff — are a leading cause of healthcare breaches. The most common reason: no one disabled their access after they left. The Verizon 2024 Data Breach Investigations Report found insiders responsible for a significant share of healthcare incidents. Here's a quick checklist to audit your access control right now.</p>
+            <p>19% of healthcare insider incidents involve former employees. The most common reason: no one disabled their access after they left. Here's a quick checklist to audit your access control right now.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.5s">
+        <a class="article-card reveal" href="article-hipaa-baa.html" style="--card-delay:0.5s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-hipaa">HIPAA & Compliance</span>
@@ -331,9 +333,9 @@
             <p>Every vendor that touches your patient data needs a BAA. Most practices are missing several. Here's exactly who needs one, what it needs to contain, and what happens if you skip it.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.6s">
+        <a class="article-card reveal" href="article-pay-the-ransom.html" style="--card-delay:0.6s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-ransomware">Ransomware</span>
@@ -342,12 +344,12 @@
             <h3>Should You Pay the Ransom? What Healthcare Practices Need to Know</h3>
           </div>
           <div class="article-card-body">
-            <p>The FBI advises against paying. Sophos found that even among organizations that pay, only 65% of encrypted data is recovered on average — and paying doesn't stop attackers from striking again. When patient care is at stake, the math gets complicated. Here's an honest breakdown. (Source: Sophos, State of Ransomware 2024)</p>
+            <p>The FBI says don't pay. The data says 46% of healthcare organizations that pay still don't recover all their data. But when patient care is at stake, the math gets complicated. Here's an honest breakdown.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="article-card reveal" style="--card-delay:0.7s">
+        <a class="article-card reveal" href="article-hipaa-risk-assessment.html" style="--card-delay:0.7s">
           <div class="article-card-top">
             <div class="article-meta">
               <span class="article-tag tag-compliance">HIPAA & Compliance</span>
@@ -359,7 +361,7 @@
             <p>A risk assessment is the most commonly cited HIPAA violation in OCR audits. It's also the most commonly misunderstood. Most "assessments" that practices have on file wouldn't support audit readiness or meet HIPAA Security Rule expectations.</p>
             <span class="article-read-link">Read the article →</span>
           </div>
-        </div>
+        </a>
 
       </div>
 
@@ -381,7 +383,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><span class="logo-bracket">[</span>LOCKRIDGE<span class="logo-accent">_CYBER</span><span class="logo-bracket">]</span></div>
-          <p class="footer-tagline">Healthcare cybersecurity.<br/>Personal. Focused. Thorough.</p>
+          <p class="footer-tagline">IT support and cybersecurity for Utah businesses and healthcare practices.</p>
+          <p class="footer-tagline" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Serving Payson, Spanish Fork, Springville, Provo, and businesses throughout Utah County.</p>
         </div>
         <div class="footer-links">
           <h4>Navigation</h4>
@@ -396,10 +399,11 @@
         <div class="footer-links">
           <h4>Services</h4>
           <ul>
-            <li><a href="healthcare.html">Email Security</a></li>
-            <li><a href="healthcare.html">HIPAA Compliance</a></li>
-            <li><a href="healthcare.html">Dark Web Monitoring</a></li>
-            <li><a href="healthcare.html">Penetration Testing</a></li>
+            <li><a href="managed-it-services.html">Managed IT Services</a></li>
+            <li><a href="cybersecurity-services.html">Cybersecurity</a></li>
+            <li><a href="network-support.html">Network Support</a></li>
+            <li><a href="it-maintenance-support.html">IT Maintenance</a></li>
+            <li><a href="healthcare-it-support.html">Healthcare IT</a></li>
           </ul>
         </div>
         <div class="footer-contact">
