@@ -874,6 +874,13 @@ input, select, textarea { font-family: inherit; }
 .warm-photo-frame {
   position: relative;
 }
+.warm-photo-img {
+  aspect-ratio: 3/4;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  display: block;
+}
 .warm-photo-placeholder {
   aspect-ratio: 3/4;
   background: var(--surface);
